@@ -1,0 +1,42 @@
+<view class="box">
+    <view class="boxContent">
+        <view class="boxBody">
+            <image src="../../images/bxbg.png" class="boxbg"/>
+            
+            <view class="boxBody">
+                <view class="boxFont">
+                    <view>恭喜少侠，答对五道题!超过<text>90%</text>的答题者</view>
+                    <view class="box-font2">醉仙附体</view>
+                    <view>本次增加酒力<text>500</text></view>
+                </view>
+                <view class="boxImg">
+                    <image src="../../images/bximg.png" class="boxImgbg"/>
+                    <view class="boxShow">
+                        <view wx:for="{{boxList}}" wx:key="{{index}}" >
+                            <image src="../../images/box.png"/>
+                            <text>{{item}}</text>
+                        </view>
+                    </view>
+                    <view class="boxBJ">
+                        <text>您有{{num}}张优惠券未领？ </text>
+                        <view class="boxBJ-font">
+                            <view wx:for="{{bjList}}" wx:for-item="obj" wx:for-index="id" wx:key="{{id}}">
+                                <view class="color-red">暴击<text>{{obj.a}}</text>倍</view>
+                                <view>{{obj.b}}</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+
+                <view class="boxBtn">
+                    <navigator open-type='redirect' url='/pages/jhmj/index'><image src="../../images/bxbtn1.png"/></navigator>
+                    <button open-type='share'><image src="../../images/bxbtn2.png"/></button>
+
+                </view>
+
+            </view>
+
+        </view>
+    </view>
+
+</view>

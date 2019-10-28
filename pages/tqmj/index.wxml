@@ -1,0 +1,33 @@
+<view class="detail">
+    <image src="../../images/mjbg.jpg" class="bg" />
+    <view class="wineBg">
+        <image src="../../images/jt.png" class="jt" />
+        <view class="detail-content">
+            <image src="{{img}}" class="mainImg" />
+        </view>
+        <view class="detail-font">
+            <view>
+                <view class="style1">{{font1}}</view>
+                型{{font2}}
+                <view class="style2">{{font3}}</view>
+            </view>
+            <text class="pHeight">{{font4}}</text>
+        </view>
+    </view>
+    <swiper class="swiper" interval="5000" duration="1000">
+        <block wx:for="{{movies}}" wx:for-index="index">
+            <swiper-item class="swiper-item">
+                <image src="../../images/video.png" />
+                <view class="videoBg">
+                    <video id="myVideo" src="{{item.url}}" bindtap="bofang" controls='true' play-btn-position='center' />
+                </view>
+            </swiper-item>
+        </block>
+    </swiper>
+    <view class="footerBg">
+        <image src="../../images/footer.png" class="footer" />
+        <image src="../../images/tqbtn.png" class="jhbtn" />
+        <view class="detail-fotter">{{font5}}</view>
+    </view>
+    <tab id="comp" />
+</view>

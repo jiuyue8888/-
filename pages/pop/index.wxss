@@ -1,0 +1,54 @@
+.popList{
+    position:fixed;
+    top:0;
+    left:0;
+    z-index: 99;
+    width:100%;
+    height:100vh;
+    padding-bottom: 150rpx;
+    box-sizing: border-box;
+    overflow: auto;
+    background:rgba(0,0,0,0.8);
+}
+.popContent{
+    width:100%;
+    height:100vh;
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+}
+.popBody{
+    position:relative;
+    width:680rpx;
+    height:1048rpx;
+    margin:0 auto;
+}
+.popbg{
+    position:absolute;
+    top:0;
+    left:50%;
+    width:680rpx;
+    height:1048rpx;
+    z-index:-1;
+    margin-left:-340rpx;
+}
+.close{
+    position:absolute;
+    top:-90rpx;
+    right:0;
+    width:93rpx;
+    height:101rpx;
+}
+.popMain{
+    width:575rpx;
+    height:828rpx;
+    box-sizing: border-box;
+    margin:170rpx 55rpx 50rpx 50rpx;
+    overflow:auto;
+
+}
+.popMain image{
+width:100%;
+height:262rpx;
+    }

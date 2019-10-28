@@ -1,0 +1,119 @@
+.detail{
+    position:relative;
+    width:100%;
+    min-height:100vh;
+
+}
+.topimg{
+    width:100%;
+    height:347rpx;
+}
+.mainImg{
+    display:block;
+    width:338rpx;
+    height:529rpx;
+    margin:0 auto;
+}
+
+.detail .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1302rpx;
+    z-index: -1;
+}
+
+.detail .pHeight {
+    max-height: 90rpx;
+    overflow: auto;
+}
+
+.wineBg {
+    position: relative;
+    width: 100%;
+    min-height: 750rpx;
+    padding-top: 20rpx;
+}
+
+.footerBg {
+    position: absolute;
+    top: 1100rpx;
+
+    width: 100%;
+    min-height: 400rpx;
+    overflow: hidden;
+}
+
+.wineBg .jt {
+    position: absolute;
+    top: 500rpx;
+    z-index: -1;
+    width: 100%;
+    height: 417rpx;
+}
+
+.footerBg .footer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 433rpx;
+    z-index: -1;
+}
+
+
+.detail-font{
+    width:404rpx;
+    margin:30rpx auto 0;
+    font-size:25rpx;
+    color:#fff677;
+    line-height:40rpx;
+    text-align:center;
+}
+.style1{
+    display:inline-block;
+    font-size:40rpx;
+    padding:0 10rpx;
+}
+.style2{
+    display:inline-block;
+    font-size:40rpx;
+    padding:0 10rpx;
+}
+.detail-font text{
+    display:block;
+    font-size:20rpx;
+    margin-top:30rpx;
+}
+.detail-content{
+    position:relative;
+    width:100%;
+}
+.hmjbtn{
+    position:absolute;
+        top:40rpx;
+        right:40rpx;
+        width:166rpx;
+        height:66rpx;
+}
+.scbtn{
+    position:absolute;
+    top:40rpx;
+    left:40rpx;
+    width:166rpx;
+    height:66rpx;
+}
+.jhbtn{
+display:block;
+    width:438rpx;
+    height:124rpx;
+    margin:80rpx auto 0;
+}
+.detail-fotter{
+    width:100%;
+    text-align:center;
+    font-size:22rpx;
+    color:#aa2328;
+    font-weight:700;
+}

@@ -1,0 +1,39 @@
+<view class="answer">
+    <image src="../../images/answerBg.jpg" class="bg"/>
+    <view wx:for="{{answer}}" wx:key="{{index}}" wx:if="{{show === index}}" class="an-body">
+        <view class="an-title">
+            <image src="../../images/answerTitle.png" class="an-title-img"/>
+            <view class="title-body">{{show+1}}/{{answer.length}}</view>
+        </view>
+        <view class="an-time">
+            <view class="an-left">
+                <image src="../../images/time.png"/>
+            </view>
+            <view class="an-right">
+                <view class="an-time-f" style="left:30%">
+                    <image src="../../images/numbg.png"/>
+                    30%
+                </view>
+                <view class="an-r-d">
+                    <view class="an-r-t" style="width: 30%;"/>
+                </view>
+            </view>
+        </view>
+        <view class="an-name">
+            {{item.question}}
+        </view>
+        <view class="an-list">
+            <view class="an-list-bg {{isClick?JSON.parse(item.answers).aws=='A'?'anR':'anW':''}}">
+                {{JSON.parse(item.answers)}}</view>
+            <view wx:for="{{JSON.parse(item.answers)}}" wx:for-item="obj" wx:for-index="id" wx:key="{{id}}"
+                  bindtap="listClick" data-num="{{id}}"
+                  class="an-list-bg {{isClick?id==obj.aws?'anR':'anW':''}}">
+                {{obj}}
+            </view>
+        </view>
+    </view>
+
+
+    <image src="../../images/anFooter.png" class="an-footer"/>
+
+</view>

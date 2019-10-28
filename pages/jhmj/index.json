@@ -1,0 +1,6 @@
+{
+  "navigationBarBackgroundColor": "#a82427",
+  "usingComponents":{
+    "tab":"../component/tab"
+  }
+}

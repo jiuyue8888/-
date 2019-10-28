@@ -1,0 +1,139 @@
+.box{
+    width:100%;
+    height:100vh;
+    min-height:1468rpx;
+    background:rgba(0,0,0,0.8);
+}
+.boxContent{
+    width:100%;
+    height:100%;
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+}
+.boxBody{
+    position:relative;
+    width:655rpx;
+    height:1267rpx;
+    margin:0 auto;
+}
+.boxbg{
+    position:absolute;
+    top:0;
+    left:50%;
+    width:655rpx;
+    height:1267rpx;
+    z-index:0;
+    margin-left:-328rpx;
+}
+.close{
+    position:absolute;
+    top:-90rpx;
+    right:0;
+    width:93rpx;
+    height:101rpx;
+}
+.popMain{
+    width:575rpx;
+    height:828rpx;
+    box-sizing: border-box;
+    margin:170rpx 55rpx 50rpx 50rpx;
+    overflow:auto;
+
+}
+.boxBJ{
+    position:absolute;
+        top:440rpx;
+        left:10%;
+        width:80%;
+}
+.color-red{
+    color:#a82427;
+}
+.boxBJ-font{
+    width:100%;
+
+}
+.boxBJ-font>view{
+    float:left;
+    width:25%;
+    color:#333;
+    font-size:20rpx;
+    text-align:center;
+}
+.boxBJ>text{
+    display:block;
+    text-align:left;
+    font-size:20rpx;
+    margin-bottom:20rpx;
+}
+.boxBJ-font text{
+    font-size:30rpx;
+}
+.boxShow{
+    position:absolute;
+    top:170rpx;
+    left:5%;
+    width:90%;
+
+}
+.boxShow view{
+    float:left;
+    width:25%;
+    color:#b91e23;
+    font-size:20rpx;
+    text-align:center;
+}
+.boxShow text{
+    display:block;
+    width:100%;
+    clear:both;
+}
+.boxShow image{
+    width:95rpx;
+    height:85rpx;
+}
+.boxImg{
+    position:relative;
+    width:590rpx;
+    height:644rpx;
+    margin:40rpx auto;
+}
+.boxImgbg{
+    width:590rpx;
+        height:644rpx;
+}
+.box-font2{
+    font-size:36rpx;
+    margin:40rpx 0 30rpx;
+}
+.boxFont{
+    position:relative;
+    width:80%;
+    margin:0 auto;
+    text-align:center;
+    font-size:24rpx;
+    color:#333;
+}
+.boxFont text{
+    color:#a82427;
+    font-size:36rpx;
+}
+.boxBtn{
+    position:relative;
+    width:505rpx;
+    margin:0 auto;
+}
+.boxBtn button{
+    padding:0;
+    background:transparent;
+}
+.boxBtn button::after{
+    display:none;
+}
+.boxBtn image{
+    width:505rpx;
+    height:86rpx;
+}
+

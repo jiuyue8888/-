@@ -1,0 +1,28 @@
+<view class="detail">
+    <image src="../../images/mjbg.jpg" class="bg" />
+    <image src="{{top}}" class="topimg" />
+    <view class="wineBg">
+        <image src="../../images/jt.png" class="jt" />
+        <view class="detail-content">
+            <image src="{{img}}" class="mainImg" />
+            <image src="../../images/scbtn.png" class="scbtn" />
+            <image src="../../images/hmjbtn.png" class="hmjbtn" />
+        </view>
+        <view class="detail-font">
+            <view>
+                <view class="style1">{{font1}}</view>
+                型{{font2}}
+                <view class="style2">{{font3}}</view>
+            </view>
+            <text class="pHeight">{{font4}}</text>
+        </view>
+    </view>
+    <view class="footerBg">
+        <image src="../../images/footer.png" class="footer" />
+        <navigator open-type='redirect' url='/pages/tqmj/index'>
+        <image src="../../images/jhbtn.png" class="jhbtn" />
+        </navigator>
+        <view class="detail-fotter">{{font5}}</view>
+    </view>
+    <tab id="comp" />
+</view>

@@ -1,0 +1,23 @@
+
+<scroll-view scroll-y class="main">
+    <view class="top-font">
+        <image src="../../images/titlebg.png"/>
+        <text>生活将重重聩赏爱学习的人</text>
+    </view>
+    <image src="../../images/bg.jpg" class="top-img"/>
+    <view class="main-content">
+        <image src="../../images/tong.png" class="tong"/>
+        <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" class="animated pulse infinite">
+            <image src="../../images/btn.png"/>
+        </button>
+        <view class="rule">
+            <text class="rule-title">规则说明：</text>
+            <text>行酒令帮您玩转聚会宴请！</text>
+            <text>传承国风，只荐名酒！</text>
+            <text>传承国风，只荐名酒！</text>
+            <text>新用户将免费拥有1次行酒令机会，同时行酒令会帮您恶补酒场知识！帮您用最省钱方式收藏美酒！</text>
+        </view>
+    </view>
+    <pop id="pop" class="{{popShow?'':'hide'}}" bind:myevent="onMyEvent" answer="{{answer}}"/>
+    <tab id="comp"/>
+</scroll-view>
