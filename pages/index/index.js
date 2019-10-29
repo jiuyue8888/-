@@ -56,19 +56,19 @@ Page({
                     case '0':
                         if(data.recordID == null){
                             wx.navigateTo({
-                                url: '../jhmj/index'
+                                url: '../result/index'
                             })
                         }
 
                         break;
                     case '1':
                         wx.navigateTo({
-                            url: '../index/index'
+                            url: '../jhmj/index'
                         })
                         break;
                     case '2':
                         wx.navigateTo({
-                            url: 'pages/result/index'
+                            url: 'pages/tqmj/index'
                         })
                         break;
                 }
