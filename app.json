@@ -1,7 +1,8 @@
 {
   "pages": [
-    
     "pages/index/index",
+    "pages/submitOrder/index",
+    
     "pages/answer/index",
     "pages/result/index",
     "pages/jhmj/index",
@@ -10,10 +11,11 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "行酒令",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "white",
+    "navigationStyle": "custom"
   },
 
   "sitemapLocation": "sitemap.json"
+
 }

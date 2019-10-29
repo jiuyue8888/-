@@ -2,7 +2,7 @@
 App({
   data:{
     url:'https://wangtest.pinet.cn',
-    cardId:'42f553f0f54811e9a5e20c5b8f279a64'
+    cardId:'c72ffcfdf7a211e9bc3c98e0d9a0bf07'
   },
   onLaunch: function () {
     //调用API从本地缓存中获取数据

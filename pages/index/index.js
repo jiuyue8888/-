@@ -18,23 +18,6 @@ Page({
         });
 
         wx.request({
-            url: app.data.url + '/api/getcardid',
-            method: 'GET', //请求方式
-            data: {},//请求参数
-            header: {
-                'content-type': 'application/json' // 默认值
-            },
-
-            success: function (res) {
-
-                that.setData({
-                    data: res.data,
-
-                })
-            }
-        });
-
-        wx.request({
             url: app.data.url + '/api/querycard',
             method: 'GET', //请求方式
             data: {
@@ -106,6 +89,23 @@ Page({
                 success: function (res) {
                     console.log(res);
 
+                    //获取用户信息
+                    wx.request({
+                        url: app.data.url + '/api/user',
+                        method: 'POST', //请求方式
+                        data: {
+                            js_code:res.code
+                        },//请求参数
+                        header: {
+                            "Content-Type": "application/x-www-form-urlencoded",
+                        },
+            
+                        success: function (data) {
+            
+                            console.log(data)
+                        }
+                    });
+
                     //获取卡片列表
                     wx.request({
                         url: app.data.url + '/api/start',
@@ -117,7 +117,7 @@ Page({
                         },//请求参数
                         header: {
                             "Content-Type": "application/x-www-form-urlencoded",
-                            //'content-type': 'application/json'
+                        
                         },
 
                         success: function (res) {

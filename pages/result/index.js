@@ -37,7 +37,7 @@ Page({
       data: {
           Topic:1,
           openID: app.data.cardId,
-          location:that.data.startData.itemIDList,
+          location:'',
           results:'3s,0,1'
       },//请求参数
       header: {

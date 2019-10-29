@@ -15,7 +15,7 @@
         </view>
     </view>
     <swiper class="swiper" interval="5000" duration="1000">
-        <block wx:for="{{movies}}" wx:for-index="index">
+        <block wx:for="{{movies}}" wx:for-index="index" wx:key="{{index}}">
             <swiper-item class="swiper-item">
                 <image src="../../images/video.png" />
                 <view class="videoBg">
@@ -26,7 +26,9 @@
     </swiper>
     <view class="footerBg">
         <image src="../../images/footer.png" class="footer" />
+        <navigator open-type='redirect' url='/pages/submitOrder/index'>
         <image src="../../images/tqbtn.png" class="jhbtn" />
+        </navigator>
         <view class="detail-fotter">{{font5}}</view>
     </view>
     <tab id="comp" />

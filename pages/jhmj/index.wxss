@@ -2,7 +2,8 @@
     position:relative;
     width:100%;
     min-height:100vh;
-
+    padding-top: 200rpx;
+    box-sizing: border-box;    
 }
 .topimg{
     width:100%;
@@ -20,7 +21,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 1302rpx;
+    height: 1440rpx;
     z-index: -1;
 }
 
@@ -38,7 +39,7 @@
 
 .footerBg {
     position: absolute;
-    top: 1100rpx;
+    top: 1300rpx;
 
     width: 100%;
     min-height: 400rpx;

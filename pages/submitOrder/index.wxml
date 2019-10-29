@@ -1,0 +1,26 @@
+<view class="submit-order">
+    <image src="../../images/submitbg.jpg" class="bg"/>
+    <view class="submit-part1">
+        <image src="{{img}}" />
+        <text class="name">{{name}}</text>
+        <view class="price">
+            <text class="price-status1">原价¥{{price1}}</text>
+            <text class="price-status2">直邮价¥188</text>
+        </view>
+    </view>
+    <view class="submit-part2">
+        <text>输入酒令卡密码</text>
+        <input class="weui-input" auto-focus/>
+    </view>
+    <view class="submit-part3">
+        <text class="title">我的收货地址</text>
+        <image src="" />
+        <view>
+            <text class="name-tellphone"></text>
+            <text class="address"></text>
+        </view>
+    </view>
+    <navigator url=""><image src="../../images/submit.png" /></navigator>
+    <tab id="comp" />
+
+</view>
