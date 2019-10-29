@@ -5,9 +5,10 @@
             
             <view class="boxBody">
                 <view class="boxFont">
-                    <view>恭喜少侠，答对五道题!超过<text>90%</text>的答题者</view>
-                    <view class="box-font2">醉仙附体</view>
-                    <view>本次增加酒力<text>500</text></view>
+                    <image src="{{avatarUrl}}"/>
+                    <view>恭喜少侠，答对五道题!超过<text>{{percentage}}%</text>的答题者</view>
+                    <view class="box-font2">{{status}}</view>
+                    <view>本次增加酒力<text>{{wineScore}}</text></view>
                 </view>
                 <view class="boxImg">
                     <image src="../../images/bximg.png" class="boxImgbg"/>

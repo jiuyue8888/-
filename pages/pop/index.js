@@ -17,7 +17,7 @@ Component({
         },
         answerStart:()=>{
             wx.navigateTo({
-                url: '../result/index'
+                url: '../answer/index'
             })
         }
     }

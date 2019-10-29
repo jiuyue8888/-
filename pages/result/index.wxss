@@ -111,10 +111,16 @@
 .boxFont{
     position:relative;
     width:80%;
-    margin:0 auto;
+    margin:-60rpx auto 0;
     text-align:center;
     font-size:24rpx;
     color:#333;
+}
+.boxFont image{
+    width:120rpx;
+    height:120rpx;
+    border-radius:50%;
+    border:2px solid #f00;
 }
 .boxFont text{
     color:#a82427;

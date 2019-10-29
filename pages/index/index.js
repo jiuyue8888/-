@@ -17,6 +17,23 @@ Page({
             })
         });
 
+        // 获取经纬度
+        wx.getLocation({
+            type: 'wgs84',
+            success: (res)=> {
+                var latitude = res.latitude
+                var longitude = res.longitude
+                var speed = res.speed
+                var accuracy = res.accuracy
+                this.setData({ latitude: latitude, longitude: longitude})
+                wx.showModal({
+                    title: '当前位置',
+                    content: '经度' + res.longitude+ '纬度'+res.latitude,
+                })
+            }
+
+        })
+        // 获取酒令信息
         wx.request({
             url: app.data.url + '/api/querycard',
             method: 'GET', //请求方式
@@ -28,25 +45,25 @@ Page({
             },
 
             success: function (res) {
-                console.log(res)
                 var data = res.data;
                 var status = res.data.status;
 
                 that.setData({
                     startData: data
                 })
+
                 switch (status){
                     case '0':
-                        if(data.recordID !== null){
+                        if(data.recordID == null){
                             wx.navigateTo({
-                                url: '../detail/index'
+                                url: '../jhmj/index'
                             })
                         }
 
                         break;
                     case '1':
                         wx.navigateTo({
-                            url: 'pages/index/index'
+                            url: '../index/index'
                         })
                         break;
                     case '2':
@@ -83,11 +100,11 @@ Page({
     bindGetUserInfo: function (res) {
         var info = res;
         var that = this;
+        console.log(res)
         if (info.detail.userInfo) {
-            console.log("点击了同意授权");
+            app.data.avatarUrl = info.detail.userInfo.avatarUrl;
             wx.login({
                 success: function (res) {
-                    console.log(res);
 
                     //获取用户信息
                     wx.request({
@@ -99,10 +116,8 @@ Page({
                         header: {
                             "Content-Type": "application/x-www-form-urlencoded",
                         },
-            
                         success: function (data) {
-            
-                            console.log(data)
+                            app.data.openid =data.data.openid;
                         }
                     });
 
@@ -128,7 +143,7 @@ Page({
                                     items:res.data.items
                                 }
                             });
-                            app.answer={
+                            app.data.answer={
                                 questions:res.data.questions,
                                 items:res.data.items
                             };
@@ -150,8 +165,6 @@ Page({
 
                 }
             })
-        } else {
-            console.log("点击了拒绝授权");
         }
     },
     onMyEvent: function (e) {

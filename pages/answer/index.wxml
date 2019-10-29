@@ -23,17 +23,16 @@
             {{item.question}}
         </view>
         <view class="an-list">
-            <view class="an-list-bg {{isClick?JSON.parse(item.answers).aws=='A'?'anR':'anW':''}}">
-                {{JSON.parse(item.answers)}}</view>
-            <view wx:for="{{JSON.parse(item.answers)}}" wx:for-item="obj" wx:for-index="id" wx:key="{{id}}"
-                  bindtap="listClick" data-num="{{id}}"
-                  class="an-list-bg {{isClick?id==obj.aws?'anR':'anW':''}}">
-                {{obj}}
-            </view>
+            <block wx:for="{{item.key}}" wx:for-item="obj" wx:if="{{obj!=='aws'}}"
+                   wx:for-index="id" wx:key="{{id}}">
+                <view class="an-list-bg {{num==obj?query:''}}" bindtap="listClick"
+                      data-aws="{{item.answers.aws}}"
+                      data-num="{{obj}}">{{obj+':'+item.answers[obj]}}</view>
+            </block>
         </view>
     </view>
 
 
     <image src="../../images/anFooter.png" class="an-footer"/>
-
+    <tab id="comp"/>
 </view>
