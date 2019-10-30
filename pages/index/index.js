@@ -17,22 +17,7 @@ Page({
             })
         });
 
-        // 获取经纬度
-        wx.getLocation({
-            type: 'wgs84',
-            success: (res)=> {
-                var latitude = res.latitude
-                var longitude = res.longitude
-                var speed = res.speed
-                var accuracy = res.accuracy
-                this.setData({ latitude: latitude, longitude: longitude})
-                wx.showModal({
-                    title: '当前位置',
-                    content: '经度' + res.longitude+ '纬度'+res.latitude,
-                })
-            }
-
-        })
+        
         // 获取酒令信息
         wx.request({
             url: app.data.url + '/api/querycard',
@@ -102,7 +87,7 @@ Page({
         var that = this;
         console.log(res)
         if (info.detail.userInfo) {
-            app.data.avatarUrl = info.detail.userInfo.avatarUrl;
+            app.data.avatarPic = info.detail.userInfo.avatarUrl;
             wx.login({
                 success: function (res) {
 

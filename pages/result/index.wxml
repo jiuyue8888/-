@@ -5,7 +5,7 @@
             
             <view class="boxBody">
                 <view class="boxFont">
-                    <image src="{{avatarUrl}}"/>
+                    <image src="{{avatarPic}}"/>
                     <view>恭喜少侠，答对五道题!超过<text>{{percentage}}%</text>的答题者</view>
                     <view class="box-font2">{{status}}</view>
                     <view>本次增加酒力<text>{{wineScore}}</text></view>
@@ -13,9 +13,9 @@
                 <view class="boxImg">
                     <image src="../../images/bximg.png" class="boxImgbg"/>
                     <view class="boxShow">
-                        <view wx:for="{{boxList}}" wx:key="{{index}}" >
+                        <view wx:for="{{boxList}}" wx:key="{{index}}" bindtap="boxTap" data-num="{{item}}">
                             <image src="../../images/box.png"/>
-                            <text>{{item}}</text>
+                            <text>支付{{item}}元</text>
                         </view>
                     </view>
                     <view class="boxBJ">
@@ -28,7 +28,11 @@
                         </view>
                     </view>
                 </view>
-
+                <view class="boxAn" style="{{show?'display:block':'display:none'}}">
+                    <image src="http://wangtest.pinet.cn/Pic/cartoon/bxkq.gif" />
+                    <text style="{{textShow?'display:block':'display:none'}}">{{times}}</text>
+                </view>
+                
                 <view class="boxBtn">
                     <navigator open-type='redirect' url='/pages/jhmj/index'><image src="../../images/bxbtn1.png"/></navigator>
                     <button open-type='share'><image src="../../images/bxbtn2.png"/></button>

@@ -3,6 +3,9 @@ var app = getApp()
 Page({
   data: {
     show:0,
+    totalTime:10,//时限
+    nowTime:0,// 当前时间百分比
+    n_time:0,//++的时间
     isClick:false,//是否点击
     query:'',
     answer:[
@@ -24,7 +27,7 @@ Page({
     let questions = app.data.answer.questions;
 
     for(let i in questions){
-      const item = questions[0];
+      const item = questions[i];
       const obj = {};
       obj.question = item.question;
       obj.answers = JSON.parse(item.answers);
@@ -41,18 +44,49 @@ Page({
   timeHandle:function(){
     var that = this;
     var n = that.data.show;
+    var totalTime = that.data.totalTime;
     this.st = setInterval(function(){
-      if(that.data.show > that.data.answer.length - 2){
+      if(that.data.show+2 > that.data.answer.length && that.data.n_time == totalTime){
         clearInterval(that.st)
+        clearInterval(that.time)
+        wx.navigateTo({url: '../result/index'});
       } else {
         n++;
+        
+        if(that.data.n_time+1 == totalTime){
+          that.setData({
+            n_time:0,
+          })
+        }
         that.setData({
-          show:n
+          show:n,
+          nowTime:0
         })
       }
 
-    },200000);
+    },totalTime*1000);
 
+    let nT = that.data.n_time;
+    this.time = setInterval(()=>{
+      nT = that.data.n_time;
+      
+      if(nT < totalTime){
+        nT++;
+        that.setData({
+          n_time:nT,
+          nowTime:parseInt(nT/totalTime*100)
+        })
+      }else{
+        
+        nT = totalTime;
+        that.setData({
+          n_time:nT,
+          nowTime:parseInt(nT/totalTime*100)
+        })
+        
+      }
+        
+    },1000)
   },
   listClick:function(e){
     var obj = e.currentTarget;
@@ -62,25 +96,26 @@ Page({
     var that = this;
     this.setData({
       num:query,
+      n_time:0,
       query:aws==query?'anR':'anW',
     })
-
+    
     id++;
     setTimeout(()=>{
       if(id == that.data.answer.length){
-        clearInterval(this.st);
-        wx.navigateTo({
-          url: '../result/index'
-        })
-
+        clearInterval(that.st);
+        wx.navigateTo({url: '../result/index'})
+  
       } else {
         that.setData({
-          show:id
+          num:'',
+          show:id,
+          nowTime:0,
+          n_time:0,
         })
       }
-
-    },300)
-
+    },500)
+    
 
   }
 

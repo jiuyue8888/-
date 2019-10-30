@@ -2,7 +2,7 @@
     <image src="../../images/submitbg.jpg" class="bg"/>
     <view class="submit-part1">
         <image src="{{img}}" />
-        <text class="name">{{name}}</text>
+        <view class="name">{{name}}</view>
         <view class="price">
             <text class="price-status1">原价¥{{price1}}</text>
             <text class="price-status2">直邮价¥188</text>
@@ -14,13 +14,14 @@
     </view>
     <view class="submit-part3">
         <text class="title">我的收货地址</text>
-        <image src="" />
-        <view>
-            <text class="name-tellphone"></text>
-            <text class="address"></text>
+        <image src="../../images/jia.png" />
+        <view class="noneAdd">暂未选择收货地址，点击加号添加地址</view>
+        <view class="haveAdd">
+            <view class="name-tellphone"></view>
+            <view class="address"></view>
         </view>
     </view>
-    <navigator url=""><image src="../../images/submit.png" /></navigator>
+    <navigator url=""><image src="../../images/submit.png" class="submit-btn"/></navigator>
     <tab id="comp" />
 
 </view>

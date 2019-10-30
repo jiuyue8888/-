@@ -34,6 +34,29 @@
     width:93rpx;
     height:101rpx;
 }
+.boxAn{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width:300rpx;
+    height: 300rpx;
+    margin: -150rpx 0 0 -150rpx;
+}
+.boxAn image{
+    width:300rpx;
+    height: 300rpx;
+}
+.boxAn text{
+    position: absolute;
+    top:40rpx;
+    left:0;
+    width: 320rpx;
+    text-align: center;
+    color:#b21c1f;
+    text-shadow:-1px 2px 0px #ead06e, 2px -1px 0px #ead06e, 2px 2px 0px #ead06e;
+    font-size:80rpx;
+    font-weight:700;
+}
 .popMain{
     width:575rpx;
     height:828rpx;

@@ -4,10 +4,10 @@ var app = getApp()
 Page({
     data: {
         num: 4,
-        avatarUrl: app.data.avatarUrl,
-        percentage:'',
-        wineScore:'',
-        status:'',
+        avatarPic: app.data.avatarPic,
+        percentage: '',
+        wineScore: '',
+        status: '',
         bjList: [
             {
                 a: "X2",
@@ -27,21 +27,25 @@ Page({
             }
         ],
         boxList: [
-            "本次免费",
-            "支付1元",
-            "支付6元",
-            "支付12元"
-        ]
+            "0",
+            "1",
+            "6",
+            "12"
+        ],
+        show: false,//宝箱动画是否显示
+        textShow: false,
+        times: 10//暴击多少倍
     },
     onLoad: function () {
         wx.showShareMenu();
         let that = this;
+        console.log(app.data.avatarPic);
         wx.request({
             url: app.data.url + '/api/end',
             method: 'POST', //请求方式
             data: {
                 topic: 1,
-                cardID:app.data.cardId,
+                cardID: app.data.cardId,
                 openID: app.data.openid,
                 location: '',
                 results: '3,0,1'
@@ -51,13 +55,50 @@ Page({
             },
             success: function (res) {
                 console.log(res)
+                app.data.recordID = res.data.recordID
                 that.setData({
-                    percentage:res.data.percentage,
-                    wineScore:res.data.wineScore,
-                    status:res.data.status
+                    avatarPic: app.data.avatarPic,
+                    percentage: res.data.percentage,
+                    wineScore: res.data.wineScore,
+                    status: res.data.status
                 })
             }
         })
 
+    },
+    boxTap: function (e) {
+        var obj = e.currentTarget;
+        var query = obj.dataset['num'];
+        var that = this;
+        wx.request({
+            url: app.data.url + '/api/opencase',
+            method: 'POST', //请求方式
+            data: {
+
+                //cardID:app.data.cardId,
+                recordID: app.data.recordID,
+                initMoney: query
+            },//请求参数
+            header: {
+                "Content-Type": "application/x-www-form-urlencoded",
+            },
+            success: function (res) {
+                console.log(res)
+                that.setData({
+                    show: true
+                })
+                setTimeout(() => {
+                    that.setData({
+                        textShow: true
+                    })
+                }, 3000);
+                setTimeout(() => {
+                    that.setData({
+                        textShow: false,
+                        show:false
+                    })
+                }, 5000);
+            }
+        })
     }
 })

@@ -10,17 +10,17 @@
                 <image src="../../images/time.png"/>
             </view>
             <view class="an-right">
-                <view class="an-time-f" style="left:30%">
+                <view class="an-time-f" style="left:{{nowTime}}%">
                     <image src="../../images/numbg.png"/>
-                    30%
+                    {{nowTime}}%
                 </view>
                 <view class="an-r-d">
-                    <view class="an-r-t" style="width: 30%;"/>
+                    <view class="an-r-t" style="width: {{nowTime}}%;"/>
                 </view>
             </view>
         </view>
         <view class="an-name">
-            {{item.question}}
+            {{answer[show].question}}
         </view>
         <view class="an-list">
             <block wx:for="{{item.key}}" wx:for-item="obj" wx:if="{{obj!=='aws'}}"
