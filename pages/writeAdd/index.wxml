@@ -2,19 +2,18 @@
     <image src="../../images/submitbg.jpg" class="bg" />
     <view class="writeAdd">
         <radio-group class="radio-group" bindchange="radioChange">
-            <radio class="radio" wx:for-items="{{items}}" wx:key="name" value="{{item.name}}" checked="{{item.checked}}">
+            <radio class="radio" wx:for-items="{{items}}" wx:key="name" checked="{{item.checked}}" value="{{index}}">
                 <text>{{item.value}}</text>
+                <image src="../../images/editor.png" class="editor" bindtap="gotoUrlAddress" data-type="{{item.value}}"/>
             </radio>
-            <image src="../../images/editor.png" class="editor" />
+            
         </radio-group>
     </view>
     <view class="editorBtn">
         <navigator url="">
-            <image src="../../images/addbwx.png" class="add-btn" />
+            <image src="../../images/addwx.png" class="add-btn" />
         </navigator>
-        <navigator url="/pages/addAddress/index">
-            <image src="../../images/addnew.png" class="add-btn" />
-        </navigator>
+        <image src="../../images/addnew.png" class="add-btn" bindtap="gotoUrlAddress" />
     </view>
     <tab id="comp" />
 </view>

@@ -1,8 +1,8 @@
 .submit-order {
     position: relative;
     width: 100%;
-    min-height: 100vh;
-
+    height: 100vh;
+    overflow: hidden;
 }
 
 .submit-order .bg {
@@ -20,26 +20,50 @@
     box-sizing: border-box;
     padding: 20rpx;
     color: #4f4739;
-    margin: 0 auto;
+    margin: 34rpx auto 0;
     top: 230rpx;
     background: #f1d6a8;
     border-radius: 30rpx;
-    height: 960rpx;
-
+    height: 520rpx;
+    overflow: scroll;
 }
 .writeAdd radio{
     position: relative;
     width: 90%;
-    margin: 0 auto;
+    padding-right: 8%;
+    font-size:28rpx;
+    margin: 20rpx 0;
 }
-
-.add-btn{
+.writeAdd radio .wx-radio-input{
+    width:26rpx;
+    height:26rpx;
+}
+.writeAdd radio .wx-radio-input.wx-radio-input-checked::before{
+    border-radius: 50%;
+    width: 20rpx; 
+    height: 20rpx; 
+    text-align: center;
+    font-size:0rpx; /* 对勾大小 去掉 */
+    
+    transform:translate(-50%, -50%) scale(1);
+    -webkit-transform:translate(-50%, -50%) scale(1);
+ }
+.writeAdd radio text{
+    display:block;
+    height:30rpx;
+    overflow: hidden;
+}
+.editorBtn{
     position: absolute;
-    top: 700rpx;
+    top: 900rpx;
     left: 50%;
     width: 504rpx;
-    height: 88rpx;
     margin-left: -252rpx;
+}
+.editorBtn image{
+    width: 504rpx;
+    height: 88rpx;
+    margin-bottom: 20rpx;
 }
 .editor{
     position: absolute;
