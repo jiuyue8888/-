@@ -8,6 +8,7 @@ Page({
     n_time:0,//++的时间
     isClick:false,//是否点击
     query:'',
+    mT:0,
     answer:[
       {
         question:"这里是问题1",
@@ -23,6 +24,7 @@ Page({
   },
   onLoad: function () {
     this.timeHandle();
+    const that = this;
     let arr=[];
     let questions = app.data.answer.questions;
 
@@ -39,6 +41,13 @@ Page({
     this.setData({
       answer:arr
     })
+    this.mt = setInterval(()=>{
+      let b = that.data.mT;
+      b++;
+      that.setData({
+        mT:b
+      })
+    },1000)
 
   },
   timeHandle:function(){
@@ -47,10 +56,14 @@ Page({
     var totalTime = that.data.totalTime;
     this.st = setInterval(function(){
       if(that.data.show+2 > that.data.answer.length && that.data.n_time == totalTime){
-        clearInterval(that.st)
-        clearInterval(that.time)
+        clearInterval(that.st);
+        clearInterval(that.mt);
+        clearInterval(that.time);
+        app.data.answerMeg[0] = that.data.mT;
+        app.data.answerMeg[that.data.show+1] = '0';
         wx.navigateTo({url: '../result/index'});
       } else {
+        app.data.answerMeg[that.data.show+1] = '0';
         n++;
         
         if(that.data.n_time+1 == totalTime){
@@ -77,7 +90,7 @@ Page({
           nowTime:parseInt(nT/totalTime*100)
         })
       }else{
-        
+
         nT = totalTime;
         that.setData({
           n_time:nT,
@@ -99,11 +112,15 @@ Page({
       n_time:0,
       query:aws==query?'anR':'anW',
     })
-    
+    app.data.answerMeg[id+1]=aws==query?'1':'0';
+
     id++;
     setTimeout(()=>{
       if(id == that.data.answer.length){
         clearInterval(that.st);
+        clearInterval(that.mt);
+        clearInterval(that.time);
+        app.data.answerMeg[0] = that.data.mT;
         wx.navigateTo({url: '../result/index'})
   
       } else {

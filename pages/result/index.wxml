@@ -6,9 +6,9 @@
             <view class="boxBody">
                 <view class="boxFont">
                     <image src="{{avatarPic}}"/>
-                    <view>恭喜少侠，答对五道题!超过<text>{{percentage}}%</text>的答题者</view>
-                    <view class="box-font2">{{status}}</view>
-                    <view>本次增加酒力<text>{{wineScore}}</text></view>
+                    <view>恭喜少侠，答对{{resultData.result}}道题!超过<text>{{resultData.percentage}}%</text>的答题者</view>
+                    <view class="box-font2">{{resultData.status}}</view>
+                    <view>本次增加酒力<text>{{resultData.wineScore}}</text></view>
                 </view>
                 <view class="boxImg">
                     <image src="../../images/bximg.png" class="boxImgbg"/>
@@ -19,9 +19,10 @@
                         </view>
                     </view>
                     <view class="boxBJ">
-                        <text>您有{{num}}张优惠券未领？ </text>
+                        <text style="{{bjList.length>0?'display:block':'display:none'}}">您有{{num}}张优惠券未领？ </text>
                         <view class="boxBJ-font">
-                            <view wx:for="{{bjList}}" wx:for-item="obj" wx:for-index="id" wx:key="{{id}}">
+                            <view wx:for="{{bjList}}" wx:for-item="obj" wx:if="{{bjList.length>0}}"
+                                  wx:for-index="id" wx:key="{{id}}">
                                 <view class="color-red">暴击<text>{{obj.a}}</text>倍</view>
                                 <view>{{obj.b}}</view>
                             </view>

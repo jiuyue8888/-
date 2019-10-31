@@ -2,7 +2,13 @@
 App({
   data:{
     url:'https://wangtest.pinet.cn',
-    cardId:'c72ffcfdf7a211e9bc3c98e0d9a0bf07'
+    cardId:'42fbd0f3f54811e99f8b0c5b8f279a64',
+    answerMeg:[],
+    resultData:{
+      percentage: '',
+      wineScore: '',
+      status: ''
+    }
   },
   onLaunch: function () {
     //调用API从本地缓存中获取数据

@@ -34,29 +34,67 @@ Page({
                 var status = res.data.status;
 
                 that.setData({
-                    startData: data
+                    startData:data
                 })
+                app.data.itemIDList = data.itemIDList;
 
-                switch (status){
-                    case '0':
-                        if(data.recordID == null){
-                            wx.navigateTo({
-                                url: '../result/index'
-                            })
+
+                if(data.recordID == null){
+                    return false;
+                }
+                wx.request({
+                    url: app.data.url + '/api/queryrecord',
+                    method: 'GET', //请求方式
+                    data: {
+                        recordID: data.recordID
+                    },//请求参数
+                    header: {
+                        'content-type': 'application/json' // 默认值
+                    },
+                    success:(result)=>{
+                        if(result.statusCode !== 200){
+                            return false;
+                        }
+                        //console.log(JSON.parse(result.sercertKey));
+                        app.data.cardId = result.data.cardID;
+                        app.data.openid = result.data.openID;
+                        let right = 0;
+                        result.data.result.split(',').map((item,index)=>{
+                            if(index > 0 && item == 1){
+                                right ++;
+                            }
+                        })
+                        app.data.resultData={
+                            percentage: result.data.percentage,
+                            wineScore: result.data.wineSocre,
+                            status: result.data.status,
+                            result: right
+                        }
+                        switch (status){
+                            case '0':
+                                if(data.recordID !== null){
+                                    wx.navigateTo({
+                                        url: '../result/index'
+                                    })
+                                }
+
+                                break;
+                            case '1':
+                                wx.navigateTo({
+                                    url: '../jhmj/index'
+                                })
+                                break;
+                            case '2':
+                                wx.navigateTo({
+                                    url: 'pages/tqmj/index'
+                                })
+                                break;
                         }
 
-                        break;
-                    case '1':
-                        wx.navigateTo({
-                            url: '../jhmj/index'
-                        })
-                        break;
-                    case '2':
-                        wx.navigateTo({
-                            url: 'pages/tqmj/index'
-                        })
-                        break;
-                }
+                    }
+                })
+
+
 
             }
         })
