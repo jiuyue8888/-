@@ -29,30 +29,21 @@
 }
 .writeAdd radio{
     position: relative;
-    width: 90%;
-    padding-right: 8%;
+    width: 82%;
+    padding: 0 8%;
     font-size:28rpx;
     margin: 20rpx 0;
 }
 .writeAdd radio .wx-radio-input{
+    position: absolute;
+    top: 50%;
+    left: 0;
     width:26rpx;
     height:26rpx;
+    margin-top: -13rpx;
 }
-.writeAdd radio .wx-radio-input.wx-radio-input-checked::before{
-    border-radius: 50%;
-    width: 20rpx; 
-    height: 20rpx; 
-    text-align: center;
-    font-size:0rpx; /* 对勾大小 去掉 */
-    
-    transform:translate(-50%, -50%) scale(1);
-    -webkit-transform:translate(-50%, -50%) scale(1);
- }
-.writeAdd radio text{
-    display:block;
-    height:30rpx;
-    overflow: hidden;
-}
+
+
 .editorBtn{
     position: absolute;
     top: 900rpx;
