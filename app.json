@@ -1,7 +1,10 @@
 {
   "pages": [
+    "pages/writeAdd/index",
     "pages/index/index",
     "pages/submitOrder/index",
+    "pages/addAddress/index",
+    
     "pages/answer/index",
     "pages/result/index",
     "pages/jhmj/index",

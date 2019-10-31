@@ -85,7 +85,7 @@ image {
     position: relative;
     width: 750rpx;
     height: 1033rpx;
-    padding-bottom:100rpx
+    padding-bottom:200rpx
 }
 .bottom-img{
     position: relative;

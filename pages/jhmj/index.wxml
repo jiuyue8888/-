@@ -12,7 +12,6 @@
             <view>
                 <view class="style1">{{font1}}</view>
                 型{{font2}}
-                <view class="style2">{{font3}}</view>
             </view>
             <text class="pHeight">{{font4}}</text>
         </view>

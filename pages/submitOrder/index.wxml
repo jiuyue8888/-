@@ -14,7 +14,7 @@
     </view>
     <view class="submit-part3">
         <text class="title">我的收货地址</text>
-        <image src="../../images/jia.png" />
+        <navigator url="/pages/addAddress/index"><image src="../../images/jia.png" /></navigator>
         <view class="noneAdd">暂未选择收货地址，点击加号添加地址</view>
         <view class="haveAdd">
             <view class="name-tellphone"></view>

@@ -1,0 +1,65 @@
+.submit-order {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+
+}
+
+.submit-order .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1624rpx;
+    z-index: -1;
+}
+
+.addAddress {
+    position: relative;
+    width: 690rpx;
+    box-sizing: border-box;
+    padding: 20rpx;
+    color: #4f4739;
+    margin: 0 auto;
+    top: 230rpx;
+    background: #f1d6a8;
+    border-radius: 30rpx;
+    height: 960rpx;
+
+}
+
+.addAddress view {
+    border-bottom: 1px solid #dec397;
+    height: 100rpx;
+    line-height: 100rpx;
+    font-size: 34rpx;
+
+}
+
+.addAddress text {
+    float: left;
+    width: 180rpx;
+
+}
+.add-btn{
+    position: absolute;
+    top: 700rpx;
+    left: 50%;
+    width: 504rpx;
+    height: 88rpx;
+    margin-left: -252rpx;
+}
+.addAddress picker,
+.addAddress input {
+    float: left;
+    width: 460rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    box-sizing: border-box;
+    padding: 26rpx 0;
+    color: #918065;
+}
+.addAddress picker{
+    padding:0;
+    
+}
