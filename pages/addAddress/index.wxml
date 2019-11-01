@@ -1,27 +1,29 @@
 <view class="submit-order">
     <image src="../../images/submitbg.jpg" class="bg" />
     <view class="addAddress">
-        <view>
-            <text>收货人</text>
-            <input placeholder="姓名" />
-        </view>
-        <view>
-            <text>联系方式</text>
-            <input placeholder="手机号" />
-        </view>
-        <view>
-            <text>所在地区</text>
-            <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
-                <view class="picker">{{region[0]}}，{{region[1]}}，{{region[2]}}</view>
-            </picker>
-        </view>
-        <view>
-            <text>收货地址</text>
-            <input placeholder="详细地址填写小区单元门牌号" />
-        </view>
+        <form bindsubmit="formSubmit">
+            <view>
+                <text>收货人</text>
+                <input placeholder="姓名" value="{{name}}" name='name' />
+            </view>
+            <view>
+                <text>联系方式</text>
+                <input placeholder="手机号" value="{{phone}}" name='cellphone' />
+            </view>
+            <view>
+                <text>所在地区</text>
+                <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+                    <view class="picker">{{region[0]}}，{{region[1]}}，{{region[2]}}</view>
+                </picker>
+            </view>
+            <view>
+                <text>收货地址</text>
+                <input placeholder="详细地址填写小区单元门牌号" value="{{address}}" name='detail' />
+            </view>
+            <image src="../../images/addbtnSure.png" class="add-btn" />
+            <button formType="submit" class="add-btn"/>
+        </form>
     </view>
-    <navigator url="">
-        <image src="../../images/addbtnSure.png" class="add-btn" />
-    </navigator>
+    
     <tab id="comp" />
 </view>

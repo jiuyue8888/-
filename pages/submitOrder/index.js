@@ -7,37 +7,57 @@ Page({
     price1: '',
     price2: '',
     userName: '',
-    userTellphone: '',
     userAdd: ''
   },
   onLoad: function () {
-
+    const that = this;
     // 获取经纬度
     wx.getLocation({
       type: 'wgs84',
       success: (res) => {
+        console.log(res)
         var latitude = res.latitude
         var longitude = res.longitude
         var speed = res.speed
         var accuracy = res.accuracy
         this.setData({ latitude: latitude, longitude: longitude })
-        wx.showModal({
-          title: '当前位置',
-          content: '经度' + res.longitude + '纬度' + res.latitude,
-        })
-      }
 
+        app.data.location = [res.longitude, res.latitude]
+
+      }
     })
+
     let data = app.data.answer.items[0];
     this.setData({
       img: data.picURL,
       name: data.spec.split(',')[0] + data.itemName,
       price1: data.spec.split(',')[0],
       price2: '',
-      userName: '',
-      userTellphone: '',
-      userAdd: ''
     })
+
+    wx.request({
+      url: app.data.url + '/api/address',
+      method: 'GET', //请求方式
+      data: {
+        openID: app.data.openid,
+      },//请求参数
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      success: function (res) {
+        const obj = res.data;
+        if (obj.length > 0) {
+          console.log(obj[app.data.addressNumber])
+          const newObj = obj[app.data.addressNumber];
+          that.setData({
+            have: true,
+            userName: newObj.name + ',' + newObj.cellphone,
+            userAdd: newObj.province + ',' + newObj.city + ',' + newObj.detail
+          })
+        }
+
+      }
+    });
   },
 
 })

@@ -6,8 +6,11 @@
     box-sizing: border-box;    
 }
 .topimg{
-    width:100%;
-    height:347rpx;
+    width: 675rpx;
+height: 311rpx;
+margin: 0 auto;
+display: block;
+
 }
 .mainImg{
     display:block;

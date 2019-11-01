@@ -27,7 +27,14 @@
     height: 960rpx;
 
 }
+.addAddress button{
+    background: transparent;
 
+
+}
+.addAddress button::after{
+    border:none;
+}
 .addAddress view {
     border-bottom: 1px solid #dec397;
     height: 100rpx;

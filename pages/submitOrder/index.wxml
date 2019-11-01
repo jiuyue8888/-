@@ -1,5 +1,5 @@
 <view class="submit-order">
-    <image src="../../images/submitbg.jpg" class="bg"/>
+    <image src="../../images/submitbg.jpg" class="bg" />
     <view class="submit-part1">
         <image src="{{img}}" />
         <view class="name">{{name}}</view>
@@ -10,18 +10,28 @@
     </view>
     <view class="submit-part2">
         <text>输入酒令卡密码</text>
-        <input class="weui-input" auto-focus/>
+        <input class="weui-input" auto-focus />
     </view>
     <view class="submit-part3">
         <text class="title">我的收货地址</text>
-        <navigator url="/pages/addAddress/index"><image src="../../images/jia.png" /></navigator>
-        <view class="noneAdd">暂未选择收货地址，点击加号添加地址</view>
-        <view class="haveAdd">
-            <view class="name-tellphone"></view>
-            <view class="address"></view>
-        </view>
+        <block wx:if="{{have}}">
+            <navigator url="/pages/writeAdd/index">
+                <image src="../../images/huan.png" />
+            </navigator>
+            <view class="haveAdd">
+                <view class="name-tellphone">{{userName}}</view>
+                <view class="address">{{userAdd}}</view>
+            </view>
+        </block>
+        <block wx:else>
+            <navigator url="/pages/addAddress/index">
+                <image src="../../images/jia.png" />
+            </navigator>
+            <view class="noneAdd">暂未选择收货地址，点击加号添加地址</view>
+        </block>
     </view>
-    <navigator url=""><image src="../../images/submit.png" class="submit-btn"/></navigator>
+    <navigator url="">
+        <image src="../../images/submit.png" class="submit-btn" />
+    </navigator>
     <tab id="comp" />
-
 </view>

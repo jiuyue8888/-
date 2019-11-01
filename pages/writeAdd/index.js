@@ -2,52 +2,97 @@
 var app = getApp()
 Page({
   data: {
-    items: [
-      { value: '张小明,182****6219,地址：江苏省 南京市 建邺区 云锦路 汉中门大街151号XX层XX室' },
-      { value: '张小明,182****6219,地址：江苏省 南京市 建邺区 云锦路 汉中门大街151号XX层XX室' },
-      { value: '张小明,182****6219,地址：' },
-      { value: '张小明,182****6219,地址：江苏省 南京市 建邺区 云锦路 汉中门大街151号XX层XX室' },
-      { value: '张小明,182****6219,地址：江苏省 南京市 建邺区 云锦路 汉中门大街151号XX层XX室' },
-      { value: '张小明,182****6219,地址：江苏省 南京市 建邺区 云锦路 汉中门大街151号XX层XX室' },
-      { value: '张小明,182****6219,地址：江苏省 南京市 建邺区 云锦路 汉中门大街151号XX层XX室' }
-    ]
+    items: []
 
   },
-  
+
   radioChange: function (e) {
-    console.log('radio发生change事件，携带value值为：', e.detail.value)
+    app.data.addressNumber = e.detail.value;
+    wx.navigateTo({
+      url: '../submitOrder/index'
+    })
   },
-  gotoUrlAddress:function(e){
+  
+  gotoUrlAddress: function (e) {
+    console.log(e);
     var obj = e.currentTarget;
-    var type = obj.dataset['type'];
-    if(type !== undefined){
-      app.data.addressEditor = type;
-    }else{
+    var name = obj.dataset['name'];
+    var id = obj.dataset['id'];
+    var address = obj.dataset['address'];
+    if (name !== undefined) {
+      app.data.addressEditor = {
+        name,
+        address,
+        id
+      };
+    } else {
       app.data.addressEditor = '';
     }
     wx.navigateTo({
       url: '../addAddress/index'
     })
   },
-  onLoad: function () {
 
-    // 获取经纬度
-    wx.getLocation({
-      type: 'wgs84',
+  //导入微信
+  getWxAdd: function () {
+    const that = this;
+    wx.getSetting({
       success: (res) => {
-        var latitude = res.latitude
-        var longitude = res.longitude
-        var speed = res.speed
-        var accuracy = res.accuracy
-        this.setData({ latitude: latitude, longitude: longitude })
-        wx.showModal({
-          title: '当前位置',
-          content: '经度' + res.longitude + '纬度' + res.latitude,
+        console.log(res);
+        if (res.authSetting['scope.address']) {
+          wx.chooseAddress({
+            success: (add) => {
+              const name = add.userName + ',' + add.telNumber;
+              const address = add.provinceName + ',' + add.cityName + ',' + add.countyName + ',' + add.detailInfo
+              let items = that.data.items;
+              items.unshift({
+                name,
+                address
+              })
+
+              that.setData({
+                items,
+              })
+            }
+          })
+        } else {
+          wx.openSetting({
+
+          })
+        }
+
+      }
+    })
+  },
+  onLoad: function () {
+    const that = this;
+    wx.request({
+      url: app.data.url + '/api/address',
+      method: 'GET', //请求方式
+      data: {
+        openID: app.data.openid,
+      },//请求参数
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      success: function (res) {
+        const obj = res.data;
+        let items=[];
+        obj.map(data=>{
+          const name = data.name + ',' + data.cellphone;
+          const address = data.province + ',' + data.city + ',' + data.district + ',' + data.detail;
+          items.push({
+            name,
+            address,
+            id:data.addressID
+          });
+        })
+      
+        that.setData({
+          items
         })
       }
-
-    })
-    
+    });
   },
 
 })

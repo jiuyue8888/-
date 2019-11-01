@@ -33,11 +33,12 @@ Page({
                 var data = res.data;
                 var status = res.data.status;
 
+                app.data.topImg = data.picURL;
                 that.setData({
                     startData:data
                 })
                 app.data.itemIDList = data.itemIDList;
-
+                app.data.recordID = data.recordID;
 
                 if(data.recordID == null){
                     return false;

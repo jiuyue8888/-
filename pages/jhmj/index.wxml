@@ -18,9 +18,7 @@
     </view>
     <view class="footerBg">
         <image src="../../images/footer.png" class="footer" />
-        <navigator open-type='redirect' url='/pages/tqmj/index'>
-        <image src="../../images/jhbtn.png" class="jhbtn" />
-        </navigator>
+        <image src="../../images/jhbtn.png" class="jhbtn" bindtap="jhmjClick" />
         <view class="detail-fotter">{{font5}}</view>
     </view>
     <tab id="comp" />

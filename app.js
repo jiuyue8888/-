@@ -4,6 +4,7 @@ App({
     url:'https://wangtest.pinet.cn',
     cardId:'42fbd0f3f54811e99f8b0c5b8f279a64',
     answerMeg:[],
+    addressNumber:0,
     resultData:{
       percentage: '',
       wineScore: '',

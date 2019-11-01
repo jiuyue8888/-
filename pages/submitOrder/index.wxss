@@ -12,6 +12,10 @@
     height:1624rpx;
     z-index:-1;
 }
+.haveAdd{
+    font-size:26rpx;
+    line-height: 34rpx;
+}
 .price{
     position: relative;
     width:100%;
