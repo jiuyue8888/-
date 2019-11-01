@@ -59,5 +59,23 @@ Page({
       }
     });
   },
+  submitClick:function(){
+    wx.request({
+      url: app.data.url + '/api/order',
+      method: 'POST', //请求方式
+      data: {
+        openID: app.data.openid,
+        cardID:app.data.cardId,
+        itemID:app.data.itemIDList,
+        address:this.data.userName+','+this.data.userAdd
+      },//请求参数
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      success: function (res) {
+        console.log(res)
 
+      }
+    });
+  }
 })

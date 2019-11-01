@@ -42,17 +42,45 @@ Page({
         if (res.authSetting['scope.address']) {
           wx.chooseAddress({
             success: (add) => {
-              const name = add.userName + ',' + add.telNumber;
-              const address = add.provinceName + ',' + add.cityName + ',' + add.countyName + ',' + add.detailInfo
-              let items = that.data.items;
-              items.unshift({
-                name,
-                address
-              })
+              wx.request({
+                url: app.data.url + '/api/address',
+                method: 'POST', //请求方式
+                data: {
+                  openID: app.data.openid,
+                  province: add.provinceName,
+                  zipCode: 210000,
+                  city: add.cityName,
+                  district: add.countyName,
+                  detail: add.detailInfo,
+                  name: add.userName,
+                  cellphone: add.telNumber
+                },//请求参数
+                header: {
+                  "Content-Type": "application/x-www-form-urlencoded",
+                },
+                success: function (res) {
+                  console.log(res)
+                  if(res.statusCode!==200){
+                    wx.showModal({
+                      content:res.data
+                    })
+                    return;
+                  }
+                  const name = add.userName + ',' + add.telNumber;
+                  const address = add.provinceName + ',' + add.cityName + ',' + add.countyName + ',' + add.detailInfo
+                  let items = that.data.items;
+                  items.unshift({
+                    name,
+                    address
+                  })
 
-              that.setData({
-                items,
-              })
+                  that.setData({
+                    items,
+                  })
+                }
+              });
+
+
             }
           })
         } else {

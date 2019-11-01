@@ -87,7 +87,7 @@ Page({
                                 break;
                             case '2':
                                 wx.navigateTo({
-                                    url: 'pages/tqmj/index'
+                                    url: '../tqmj/index'
                                 })
                                 break;
                         }

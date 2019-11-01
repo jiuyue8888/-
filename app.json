@@ -13,8 +13,8 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarTitleText": "行酒令",
-    "navigationBarTextStyle": "white",
-    "navigationStyle": "custom"
+    "navigationBarTextStyle": "white"
+
   },
   "sitemapLocation": "sitemap.json",
   "permission": {

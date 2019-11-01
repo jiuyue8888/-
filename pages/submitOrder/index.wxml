@@ -10,7 +10,7 @@
     </view>
     <view class="submit-part2">
         <text>输入酒令卡密码</text>
-        <input class="weui-input" auto-focus />
+        <input class="weui-input"/>
     </view>
     <view class="submit-part3">
         <text class="title">我的收货地址</text>
@@ -30,8 +30,8 @@
             <view class="noneAdd">暂未选择收货地址，点击加号添加地址</view>
         </block>
     </view>
-    <navigator url="">
-        <image src="../../images/submit.png" class="submit-btn" />
-    </navigator>
+
+        <image src="../../images/submit.png" class="submit-btn" bindtap="submitClick"/>
+
     <tab id="comp" />
 </view>

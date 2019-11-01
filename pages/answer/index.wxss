@@ -15,7 +15,6 @@
 .an-body{
     position:relative;
     width:80%;
-    padding-top:190rpx;
     margin:0 auto;
 }
 .an-time{

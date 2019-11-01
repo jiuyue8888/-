@@ -2,7 +2,7 @@
 App({
   data:{
     url:'https://wangtest.pinet.cn',
-    cardId:'42fbd0f3f54811e99f8b0c5b8f279a64',
+    cardId:'c73057baf7a211e989b398e0d9a0bf07',
     answerMeg:[],
     addressNumber:0,
     resultData:{
@@ -17,24 +17,7 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
   },
-  /*getUserInfo:function(cb){
-    var that = this
-    if(this.globalData.userInfo){
-      typeof cb == "function" && cb(this.globalData.userInfo)
-    }else{
-      //调用登录接口
-      wx.login({
-        success: function () {
-          wx.getUserInfo({
-            success: function (res) {
-              that.globalData.userInfo = res.userInfo
-              typeof cb == "function" && cb(that.globalData.userInfo)
-            }
-          })
-        }
-      })
-    }
-  },*/
+
   onLoad:function(){
     console.log(333)
   },

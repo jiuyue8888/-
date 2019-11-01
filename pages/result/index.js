@@ -9,7 +9,6 @@ Page({
         bjList: [],
         resultData:app.data.resultData,
         boxList: [
-            "0",
             "1",
             "6",
             "12"
@@ -31,12 +30,7 @@ Page({
                 })
             }
         })
-        if(app.data.answerMeg.length < 1){
-            that.setData({
-                resultData:app.data.resultData
-            })
-            return false;
-        }
+
         wx.request({
             url: app.data.url + '/api/end',
             method: 'POST', //请求方式

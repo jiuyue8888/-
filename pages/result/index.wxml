@@ -13,6 +13,10 @@
                 <view class="boxImg">
                     <image src="../../images/bximg.png" class="boxImgbg"/>
                     <view class="boxShow">
+                        <view bindtap="boxTap" data-num="1">
+                            <image src="../../images/box.png"/>
+                            <text>本次免费</text>
+                        </view>
                         <view wx:for="{{boxList}}" wx:key="{{index}}" bindtap="boxTap" data-num="{{item}}">
                             <image src="../../images/box.png"/>
                             <text>支付{{item}}元</text>

@@ -1,5 +1,6 @@
 {
-  "navigationBarBackgroundColor": "#f1e9c4",
+  "navigationBarBackgroundColor": "#f1d6a8",
+  "navigationBarTextStyle": "black",
   "usingComponents":{
     "tab":"../component/tab"
   }
