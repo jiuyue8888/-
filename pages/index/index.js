@@ -53,12 +53,16 @@ Page({
                         'content-type': 'application/json' // 默认值
                     },
                     success:(result)=>{
+                        console.log(result)
                         if(result.statusCode !== 200){
                             return false;
                         }
                         //console.log(JSON.parse(result.sercertKey));
                         app.data.cardId = result.data.cardID;
                         app.data.openid = result.data.openID;
+                        app.data.answerMeg = result.data.result;
+                        app.data.boxList = JSON.parse(result.data.sercertKey);
+                        console.log(app.data.boxList)
                         let right = 0;
                         result.data.result.split(',').map((item,index)=>{
                             if(index > 0 && item == 1){
@@ -82,7 +86,7 @@ Page({
                                 break;
                             case '1':
                                 wx.navigateTo({
-                                    url: '../jhmj/index'
+                                    url: '../tqmj/index'
                                 })
                                 break;
                             case '2':
@@ -129,7 +133,7 @@ Page({
             app.data.avatarPic = info.detail.userInfo.avatarUrl;
             wx.login({
                 success: function (res) {
-
+                    console.log(res.code)
                     //获取用户信息
                     wx.request({
                         url: app.data.url + '/api/user',

@@ -74,7 +74,9 @@ Page({
       },
       success: function (res) {
         console.log(res)
-
+        wx.showModal({
+          content:res.data
+        })
       }
     });
   }

@@ -19,7 +19,8 @@
             <swiper-item class="swiper-item">
                 <image src="../../images/video.png" />
                 <view class="videoBg">
-                    <video id="myVideo" src="{{item}}" bindtap="bofang" controls='true' play-btn-position='center' />
+                    <video id="myVideo" src="{{item}}" bindtap="bofang" controls='true' custom-cache="{{false}}"
+                           play-btn-position='center' />
                 </view>
             </swiper-item>
         </block>
