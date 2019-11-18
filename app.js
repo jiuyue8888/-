@@ -2,7 +2,7 @@
 App({
   data:{
     url:'https://wangtest.pinet.cn',
-    cardId:'42fbd891f54811e98b180c5b8f279a64',
+    cardId:'b97be014ff1311e9805e0242ac110003',
     answerMeg:[],
     addressNumber:0,
     resultData:{
@@ -18,9 +18,7 @@ App({
     wx.setStorageSync('logs', logs)
   },
 
-  onLoad:function(){
-    console.log(333)
-  },
+
   globalData:{
     userInfo:null
   }

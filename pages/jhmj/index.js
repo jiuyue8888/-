@@ -32,13 +32,14 @@ Page({
     const that = this;
     if (app.data.answer !== undefined) {
       const data = app.data.answer.items[0];
+      console.log(data)
       this.setData({
         top: app.data.topImg,
         img: data.picURL,
         font1: data.spec.split(',')[0],
         font2: data.itemName,
         font4: data.story,
-        font5: "行酒令将为您节省2000元"
+        font5: "行酒令将为您节省"+app.data.final+"元"
       })
     } else {
       wx.request({
@@ -51,13 +52,14 @@ Page({
           "Content-Type": "application/x-www-form-urlencoded",
         },
         success: function (res) {
+          console.log(app.data)
           that.setData({
             top: app.data.topImg,
             img: res.data.picURL,
             font1: res.data.spec.split(',')[0],
             font2: res.data.itemName,
             font4: res.data.story,
-            font5: "行酒令将为您节省2000元"
+            font5: "行酒令将为您节省"+app.data.final+"元"
           })
         }
       });

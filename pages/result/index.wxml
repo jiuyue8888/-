@@ -20,23 +20,25 @@
                         <view wx:for="{{boxList}}" wx:key="{{index}}" bindtap="boxTap" data-num="{{item}}">
                             <image src="../../images/box.png"/>
                             <text>支付{{item}}元</text>
+
                         </view>
                     </view>
                     <view class="boxBJ">
-                        <text style="{{bjList.length>0?'display:block':'display:none'}}">您有{{num}}张优惠券未领？ </text>
+                        <text style="{{bjList.length>0?'display:none':'display:none'}}">您有{{num}}张优惠券未领？ </text>
                         <view class="boxBJ-font">
                             <view wx:for="{{bjList}}" wx:for-item="obj" wx:if="{{bjList.length>0}}"
                                   wx:for-index="id" wx:key="{{id}}">
-                                <view class="color-red">暴击<text>{{obj.a}}</text>倍</view>
-                                <view>{{obj.b}}</view>
+                                <view class="color-red">暴击<text>{{obj.times}}</text>倍</view>
+                                <view>X{{obj.final}}元</view>
                             </view>
                         </view>
                     </view>
                 </view>
                 <view class="boxAn" style="{{show?'display:block':'display:none'}}">
-                    <image src="http://wangtest.pinet.cn/Pic/cartoon/bxkq.gif" />
+                    <image src="{{gif}}"/>
                     <text style="{{textShow?'display:block':'display:none'}}">{{times}}</text>
                 </view>
+
                 
                 <view class="boxBtn">
                     <navigator open-type='redirect' url='/pages/jhmj/index'><image src="../../images/bxbtn1.png"/></navigator>

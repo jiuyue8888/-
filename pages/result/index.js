@@ -7,7 +7,7 @@ Page({
         avatarPic: app.data.avatarPic,
 
         bjList: [],
-        resultData:app.data.resultData,
+        resultData: app.data.resultData,
         boxList: [
             "1",
             "6",
@@ -18,15 +18,17 @@ Page({
         times: 10//暴击多少倍
     },
     onLoad: function () {
+
         wx.showShareMenu();
         let that = this;
         wx.getUserInfo({
-            success: function(res) {
+            success: function (res) {
                 var userInfo = res.userInfo
                 var avatarUrl = userInfo.avatarUrl
 
                 that.setData({
                     avatarPic: avatarUrl,
+                    gif:'http://wangtest.pinet.cn/Pic/cartoon/bxkq.gif'
                 })
             }
         })
@@ -45,13 +47,25 @@ Page({
                 "Content-Type": "application/x-www-form-urlencoded",
             },
             success: function (res) {
-                app.data.recordID = res.data.recordID
+                app.data.recordID = res.data.recordID;
+                const list = app.data.boxList;
+                let arr = [];
+                app.data.final = 0;
+                Object.keys(list).map(item=>{
+                    arr.push({
+                        final:list[item].final,
+                        times:list[item].times,
+                    })
+                    app.data.final += list[item].final;
+                });
+                console.log(arr)
                 that.setData({
-                    resultData:{
+                    resultData: {
                         percentage: res.data.percentage,
                         wineScore: res.data.wineScore,
-                        status: res.data.status
-                    }
+                        status: res.data.status,
+                    },
+                    bjList: arr
 
                 })
             }
@@ -75,10 +89,28 @@ Page({
                 "Content-Type": "application/x-www-form-urlencoded",
             },
             success: function (res) {
-                console.log(res)
+
+                if(typeof res.data == "string"){
+                    /*wx.showModal({
+                        content:res.data
+                    })
+                    return;*/
+                }
+
+                let brr = [];
+                app.data.final = 0;
+                Object.keys(res.data).map(item=>{
+                    brr.push({
+                        final:res.data[item].final,
+                        times:res.data[item].times,
+                    })
+                    app.data.final+=res.data[item].final;
+                });
                 that.setData({
-                    show: true
-                })
+                    show: true,
+                    bjList:brr,
+                    times:brr[brr.length-1].times,
+                });
                 setTimeout(() => {
                     that.setData({
                         textShow: true
@@ -87,8 +119,9 @@ Page({
                 setTimeout(() => {
                     that.setData({
                         textShow: false,
-                        show:false
+                        show: false,
                     })
+
                 }, 5000);
             }
         })

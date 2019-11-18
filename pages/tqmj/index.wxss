@@ -28,8 +28,9 @@
 }
 
 .detail .pHeight {
-    max-height: 90rpx;
-    overflow: auto;
+    height: 40px;
+    overflow: hidden;
+    margin-top: 10rpx;
 }
 
 .wineBg {
@@ -67,7 +68,7 @@
 
 .detail-font {
     width: 404rpx;
-    margin: 60rpx auto 0;
+    margin: 50rpx auto 0;
     font-size: 25rpx;
     color: #fff677;
     line-height: 40rpx;
@@ -87,9 +88,13 @@
 }
 
 .detail-font text {
+    position: relative;
+
     display: block;
+    line-height: 20px;
     font-size: 20rpx;
-    margin-top: 30rpx;
+    height: auto;
+
 }
 
 .detail-content {
