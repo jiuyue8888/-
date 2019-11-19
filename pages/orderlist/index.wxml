@@ -1,0 +1,15 @@
+<view class="submit-order">
+    <image src="../../images/kfbg.jpg" class="bg" />
+    <view class="writeAdd">
+        <block wx:for="{{items}}" wx:key="{{index}}">
+            <view class="list">
+                <view class="time">{{item.time}}</view>
+                <view class="name">{{item.name}}</view>
+                <view class="text">{{item.text}}</view>
+                <view class="num">{{item.num}}</view>
+            </view>
+        </block>
+    </view>
+
+    <tab id="comp" />
+</view>

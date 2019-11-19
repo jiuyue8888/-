@@ -18,6 +18,45 @@ Page({
         });
 
 
+        wx.login({
+            success: function (res) {
+                //获取用户信息
+                wx.request({
+                    url: app.data.url + '/api/user',
+                    method: 'POST', //请求方式
+                    data: {
+                        js_code: res.code
+                    },//请求参数
+                    header: {
+                        "Content-Type": "application/x-www-form-urlencoded",
+                    },
+                    success: function (data) {
+                        console.log(data)
+                        app.data.openid = data.data.openid;
+                    }
+                });
+                // 获取用户信息
+                wx.getSetting({
+                    success: res => {
+                        if (res.authSetting['scope.userInfo']) {
+                            // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+                            wx.getUserInfo({
+                                success: res => {
+                                    console.log(res)
+                                    app.data.avatarPic = res.userInfo.avatarUrl;
+                                    // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+                                    // 所以此处加入 callback 以防止这种情况
+                                    if (this.userInfoReadyCallback) {
+                                        this.userInfoReadyCallback(res)
+                                    }
+                                }
+                            })
+                        }
+                    }
+                })
+
+            }
+        })
         // 获取酒令信息
         wx.request({
             url: app.data.url + '/api/querycard',
@@ -32,6 +71,17 @@ Page({
             success: function (res) {
                 var data = res.data;
                 var status = res.data.status;
+                if (typeof res.data == 'string') {
+                    wx.showToast({
+                        'title': res.data,
+                        icon: 'none'
+                    });
+                    setTimeout(function () {
+                        wx.navigateTo({
+                            url: '../rank/index'
+                        })
+                    }, 1000)
+                }
 
                 app.data.topImg = data.picURL;
                 that.setData({
@@ -52,7 +102,7 @@ Page({
                     header: {
                         'content-type': 'application/json' // 默认值
                     },
-                    success: (result) => {
+                    success: (result)=> {
                         console.log(result)
                         if (result.statusCode !== 200) {
                             return false;
@@ -64,7 +114,7 @@ Page({
                         app.data.boxList = JSON.parse(result.data.sercertKey);
 
                         let right = 0;
-                        result.data.result.split(',').map((item, index) => {
+                        result.data.result.split(',').map((item, index)=> {
                             if (index > 0 && item == 1) {
                                 right++;
                             }
@@ -91,14 +141,13 @@ Page({
                                 break;
                             case '2':
                                 wx.navigateTo({
-                                    url: '../tqmj/index'
+                                    url: '../orderSeccuss/index'
                                 })
                                 break;
                         }
 
                     }
                 })
-
 
 
             }
@@ -130,65 +179,43 @@ Page({
         var that = this;
         console.log(res)
         if (info.detail.userInfo) {
-            app.data.avatarPic = info.detail.userInfo.avatarUrl;
-            wx.login({
+            //获取卡片列表
+            wx.request({
+                url: app.data.url + '/api/start',
+                method: 'POST', //请求方式
+                data: {
+                    Topic: 1,
+                    CardID: app.data.cardId,
+                    itemIDList: that.data.startData.itemIDList
+                },//请求参数
+                header: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+
+                },
+
                 success: function (res) {
-                    console.log(res.code)
-                    //获取用户信息
-                    wx.request({
-                        url: app.data.url + '/api/user',
-                        method: 'POST', //请求方式
-                        data: {
-                            js_code: res.code
-                        },//请求参数
-                        header: {
-                            "Content-Type": "application/x-www-form-urlencoded",
-                        },
-                        success: function (data) {
-                            app.data.openid = data.data.openid;
+                    console.log(res)
+                    that.setData({
+                        answer: {
+                            questions: res.data.questions,
+                            items: res.data.items
                         }
                     });
-
-                    //获取卡片列表
-                    wx.request({
-                        url: app.data.url + '/api/start',
-                        method: 'POST', //请求方式
-                        data: {
-                            Topic: 1,
-                            CardID: app.data.cardId,
-                            itemIDList: that.data.startData.itemIDList
-                        },//请求参数
-                        header: {
-                            "Content-Type": "application/x-www-form-urlencoded",
-
-                        },
-
-                        success: function (res) {
-                            console.log(res)
-                            that.setData({
-                                answer: {
-                                    questions: res.data.questions,
-                                    items: res.data.items
-                                }
-                            });
-                            app.data.answer = {
-                                questions: res.data.questions,
-                                items: res.data.items
-                            };
-                            var arr = [];
-                            res.data.items.map(item => {
-                                arr.push(item.picURL);
-                                that.setData({
-                                    answer: {
-                                        arr,
-                                    }
-                                });
-                            });
-                            that.setData({
-                                popShow: true
-                            })
-
-                        }
+                    app.data.answer = {
+                        questions: res.data.questions,
+                        items: res.data.items
+                    };
+                    var arr = [];
+                    res.data.items.map(item=> {
+                        arr.push(item.picURL);
+                        that.setData({
+                            answer: {
+                                arr,
+                            }
+                        });
+                    });
+                    that.setData({
+                        popShow: true
                     })
 
                 }

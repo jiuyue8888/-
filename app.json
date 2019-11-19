@@ -2,6 +2,13 @@
   "pages": [
 
     "pages/index/index",
+    "pages/ytq/index",
+    "pages/orderlist/index",
+    "pages/winelist/index",
+    "pages/kf/index",
+    "pages/my/index",
+    "pages/rank/index",
+    "pages/orderSeccuss/index",
     "pages/submitOrder/index",
     "pages/addAddress/index",
     "pages/writeAdd/index",

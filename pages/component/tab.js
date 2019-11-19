@@ -9,16 +9,16 @@ Component({
                 url: '../../pages/index/index'
             },
             {
-                name: '切换',
+                name: '排行榜',
                 img:'../../images/icon2.png',
                 imgHover:'../../images/icon1h.png',
-                url: '../../pages/index/index'
+                url: '../../pages/rank/index'
             },
             {
                 name: '我的',
                 img:'../../images/icon3.png',
                 imgHover:'../../images/icon1h.png',
-                url: '../../pages/my/my'
+                url: '../../pages/my/index'
             }
         ]
     },

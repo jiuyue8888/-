@@ -1,0 +1,6 @@
+<view class="submit-order">
+    <image src="../../images/kfbg.jpg" class="bg" />
+    <image src="../../images/kf.png" class="''kf"/>
+    
+    <tab id="comp" />
+</view>

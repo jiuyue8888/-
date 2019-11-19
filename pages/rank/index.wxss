@@ -1,0 +1,154 @@
+.phb{
+    position:relative;
+    width:100%;
+
+}
+.mjbg{
+position:relative;
+width:750rpx;
+height:1440rpx;
+z-index:-1;
+}
+.phbg{
+position:absolute;
+top:0;
+left:0;
+z-index:0;
+width:750rpx;
+height:1175rpx;
+}
+.phb-main{
+position:absolute;
+top:0;
+left:0;
+z-index:1;
+width:100%;
+}
+image.photo{
+    width:68rpx;
+    height:68rpx;
+    box-sizing:border-box;
+    border-radius:50%;
+    border:4rpx solid #edc14b;
+}
+.name{
+color:#fff;
+font-size:20rpx;
+}
+.text{
+color:#edc14b;
+}
+.part1{
+    position:relative;
+    width:80%;
+    height:320rpx;
+    margin:0 auto;
+
+}
+.part1 .text{
+
+font-size:23rpx;
+}
+.part1 .list0{
+position:absolute;
+top:134rpx;
+left:50%;
+width:220rpx;
+margin-left:-112rpx;
+text-align:center;
+overflow:hidden;
+}
+.part1 .list1{
+position:absolute;
+top:165rpx;
+left:0;
+width:190rpx;
+padding-bottom:20rpx;
+text-align:center;
+overflow:hidden;
+}
+.part1 .list2{
+position:absolute;
+top:170rpx;
+right:0;
+width:200rpx;
+padding-bottom:20rpx;
+text-align:center;
+overflow:hidden;
+}
+.list1 .name,
+.list2 .name{
+position:absolute;
+bottom:0;
+left:0;
+width:200rpx;
+text-align:center;
+overflow:hidden;
+}
+.part2{
+position:relative;
+width:100%;
+height:670rpx;
+box-sizing:border-box;
+padding:20rpx 70rpx 0;
+overflow:hidden;
+}
+
+.listbg{
+position:absolute;
+top:0;
+left:0;
+z-index:-1;
+width:607rpx;
+height:106rpx;
+}
+.lists{
+position:relative;
+width:100%;
+height:106rpx;
+margin-bottom:10rpx;
+line-height:106rpx;
+color:#fff;
+}
+.lists text{
+float:left;
+width:106rpx;
+font-size:30rpx;
+line-height:90rpx;
+text-align:center;
+}
+.lists image.photo{
+float:left;
+width:80rpx;
+height:80rpx;
+margin-top:11rpx;
+}
+.lists .name{
+float:left;
+width:250rpx;
+text-align:center;
+font-size:32rpx;
+color:#9f1e1e;
+}
+.lists .text{
+font-size:34rpx;
+color:#9f1e1e;
+}
+.part3{
+position: relative;
+width: 100%;
+height: 210rpx;
+margin: 0 auto;
+box-sizing: border-box;
+padding: 30rpx 70rpx 0;
+
+
+}
+.part3 .name,
+.part3 .text{
+color:#fff;
+}
+.part4 image{
+width:750rpx;
+height:130rpx;
+}

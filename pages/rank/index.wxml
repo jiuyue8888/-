@@ -1,0 +1,40 @@
+<view class="phb">
+    <image src="../../images/mjbg.jpg" class="mjbg"/>
+    <image src="../../images/phbg.png" class="phbg"/>
+    <view class="phb-main">
+        <view class="part1">
+            <block wx:for="{{list}}" wx:key="{{index}}" wx:if="{{index<3}}">
+                <view class="list{{index}}">
+                    <view class="text">{{item.text}}</view>
+                    <image src="{{item.url}}" alt="" class="photo"/>
+                    <view class="name">{{item.name}}</view>
+                </view>
+            </block>
+        </view>
+
+        <scroll-view scroll-y class="part2">
+            <block wx:for="{{list}}" wx:key="{{index}}" wx:if="{{index>2}}">
+                <view class="lists">
+                    <image src="../../images/phlistbg.png" class="listbg" alt=""/>
+                    <text>{{index+1}}</text>
+                    <image src="{{item.url}}" alt="" class="photo"/>
+                    <view class="name">{{item.name}}</view>
+                    <view class="text">{{item.text}}</view>
+                </view>
+            </block>
+        </scroll-view>
+        <view class="part3">
+            <view class="lists">
+                <text>{{my.no}}</text>
+                <image src="{{my.url}}" alt="" class="photo"/>
+                <view class="name">{{my.name}}</view>
+                <view class="text">{{my.text}}</view>
+
+            </view>
+        </view>
+        <view class="part4">
+            <image src="../../images/phfont.png" alt=""/>
+        </view>
+    </view>
+    <tab id="comp"/>
+</view>

@@ -1,0 +1,70 @@
+.detail{
+    position:relative;
+    width:100%;
+    height:100vh;
+    overflow:hidden;
+    box-sizing: border-box;    
+}
+.topimg{
+    width: 675rpx;
+height: 311rpx;
+margin: 0 auto;
+display: block;
+
+}
+.ytq{
+    width:750rpx;
+    height:692rpx;
+}
+.mainImg{
+    display:block;
+    width:338rpx;
+    height:529rpx;
+    margin:0 auto;
+}
+
+.detail .bg {
+    position: absolute;
+    top: -100rpx;
+    left: 0;
+    width: 100%;
+    height: 1440rpx;
+    z-index: -1;
+}
+
+
+
+.wineBg {
+    position: relative;
+    width: 100%;
+    min-height: 750rpx;
+    padding-top: 20rpx;
+}
+
+.footerBg {
+    position: absolute;
+    top: 1040rpx;
+
+    width: 100%;
+    min-height: 400rpx;
+    overflow: hidden;
+}
+
+.wineBg .jt {
+    position: absolute;
+    top: 640rpx;
+    z-index: -1;
+    width: 100%;
+    height: 417rpx;
+}
+
+.footerBg .footer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 433rpx;
+    z-index: -1;
+}
+
+

@@ -1,0 +1,15 @@
+<view class="submit-order">
+    <image src="../../images/kfbg.jpg" class="bg" />
+    <view class="writeAdd">
+        <block wx:for="{{items}}" wx:key="{{index}}">
+            <view class="list">
+                <view class="time">{{item.createTime}}</view>
+                <view class="name">{{item.status}}</view>
+                <view class="text">累计答对<text>{{item.result}}</text>道题</view>
+                <view class="num">{{item.wineSocre}}酒力</view>
+            </view>
+        </block>
+    </view>
+
+    <tab id="comp" />
+</view>

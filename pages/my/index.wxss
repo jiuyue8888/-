@@ -1,0 +1,92 @@
+.box{
+position:relative;
+    width:100%;
+
+
+}
+.mjbg{
+position:relative;
+width:750rpx;
+height:1440rpx;
+z-index:-1;
+}
+.boxbg{
+position:absolute;
+    top:60rpx;
+    left:50%;
+    width:655rpx;
+    height:1267rpx;
+    z-index:0;
+    margin-left:-328rpx;
+}
+
+.boxBody{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    box-sizing:border-box;
+    padding:0 100rpx;
+}
+
+
+.boxFont{
+    position:relative;
+    width:80%;
+    margin:0 auto 0;
+    text-align:center;
+    font-size:24rpx;
+    color:#333;
+}
+.boxFont image{
+    width:120rpx;
+    height:120rpx;
+    border-radius:50%;
+    border:2px solid #f00;
+}
+.boxFont view{
+
+    font-size:36rpx;
+}
+.part{
+    position:relative;
+    width:100%;
+    text-align:center;
+    color:#9f1e1e;
+    margin:60rpx 0;
+    overflow:hidden;
+}
+.part text{
+display:block;
+width:100%;
+    color:#333;
+    padding-top:10rpx;
+    font-size:34rpx;
+}
+.part view{
+width:50%;
+float:left;
+}
+.mylist{
+position:relative;
+width:100%;
+height:78rpx;
+margin-bottom:40rpx;
+line-height:78rpx;
+box-sizing:border-box;
+padding-left:80rpx;
+}
+.mylist image{
+position:absolute;
+top:0;
+left:0;
+z-index:0;
+width:100%;
+height:78rpx;
+}
+.mylist text{
+display:block;
+position:relative;
+z-index:2;
+color:#571616;
+}

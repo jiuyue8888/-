@@ -1,0 +1,13 @@
+<view class="detail">
+    <image src="../../images/mjbg.jpg" class="bg" />
+    <image src="{{top}}" class="topimg" />
+    <view class="wineBg">
+        <image src="../../images/jt.png" class="jt" />
+        <image src="../../images/ytqimg.png" class="ytq"/>
+
+    </view>
+    <view class="footerBg">
+        <image src="../../images/footer.png" class="footer" />
+    </view>
+    <tab id="comp" />
+</view>
