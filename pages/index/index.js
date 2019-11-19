@@ -19,22 +19,8 @@ Page({
 
 
         wx.login({
-            success: function (res) {
-                //获取用户信息
-                wx.request({
-                    url: app.data.url + '/api/user',
-                    method: 'POST', //请求方式
-                    data: {
-                        js_code: res.code
-                    },//请求参数
-                    header: {
-                        "Content-Type": "application/x-www-form-urlencoded",
-                    },
-                    success: function (data) {
-                        console.log(data)
-                        app.data.openid = data.data.openid;
-                    }
-                });
+            success: function (resa) {
+
                 // 获取用户信息
                 wx.getSetting({
                     success: res => {
@@ -49,6 +35,23 @@ Page({
                                     if (this.userInfoReadyCallback) {
                                         this.userInfoReadyCallback(res)
                                     }
+
+                                    //获取用户信息
+                                    wx.request({
+                                        url: app.data.url + '/api/user',
+                                        method: 'POST', //请求方式
+                                        data: {
+                                            js_code: resa.code,
+                                            headIcon:res.userInfo.avatarUrl
+                                        },//请求参数
+                                        header: {
+                                            "Content-Type": "application/x-www-form-urlencoded",
+                                        },
+                                        success: function (data) {
+                                            console.log(data)
+                                            app.data.openid = data.data.openid;
+                                        }
+                                    });
                                 }
                             })
                         }

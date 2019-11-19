@@ -2,7 +2,7 @@
 App({
   data:{
     url:'https://wangtest.pinet.cn',
-    cardId:'2f7f376009f611ea811b0242ac110003',
+    cardId:'826a40400ac911eab6750242ac110003',
     answerMeg:[],
     addressNumber:0,
     resultData:{

@@ -2,54 +2,6 @@
 var app = getApp()
 Page({
     data: {
-        list:[
-            {
-                text:'200酒力',
-                name:'xixijashj',
-                url:'../../images/mjbg.jpg'
-            },
-            {
-                text:'200酒力',
-                name:'xixijashj',
-                url:'../../images/mjbg.jpg'
-            },{
-                text:'200酒力',
-                name:'xixijashj',
-                url:'../../images/mjbg.jpg'
-            },{
-                text:'200酒力',
-                name:'xixijashj',
-                url:'../../images/mjbg.jpg'
-            },{
-                text:'200酒力',
-                name:'xixijashj',
-                url:'../../images/mjbg.jpg'
-            },{
-                text:'200酒力',
-                name:'xixijashj',
-                url:'../../images/mjbg.jpg'
-            },{
-                text:'200酒力',
-                name:'xixijashj',
-                url:'../../images/mjbg.jpg'
-            },{
-                text:'200酒力',
-                name:'xixijashj',
-                url:'../../images/mjbg.jpg'
-            },{
-                text:'200酒力',
-                name:'xixijashj',
-                url:'../../images/mjbg.jpg'
-            },{
-                text:'200酒力',
-                name:'xixijashj',
-                url:'../../images/mjbg.jpg'
-            },{
-                text:'200酒力',
-                name:'xixijashj',
-                url:'../../images/mjbg.jpg'
-            }
-        ],
         my:{
             text:'200酒力',
             name:'xixijashj',
@@ -72,9 +24,32 @@ Page({
                 if (result.statusCode !== 200) {
                     return false;
                 }
+                that.setData({
+                    list:result.data
+                })
 
             }
         })
+        wx.request({
+            url: app.data.url + '/api/user',
+            method: 'GET', //请求方式
+            data: {
+                openID: app.data.openid,
+            },//请求参数
+            header: {
+                "Content-Type": "application/x-www-form-urlencoded",
+            },
+            success: function (res) {
+                const obj = res.data;
+                console.log(res)
+                if (res.statusCode !== 200) {
+                    return false;
+                }
+                that.setData({
+                    my:obj
+                })
+            }
+        });
     }
 
 

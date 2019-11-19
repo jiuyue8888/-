@@ -2,16 +2,24 @@
 	"description": "项目配置文件",
 	"setting": {
 		"urlCheck": true,
-		"coverView": true,
 		"es6": true,
+		"enhance": false,
 		"postcss": true,
 		"minified": true,
-		"autoAudits": false,
 		"newFeature": false,
-		"uglifyFileName": false,
-		"uploadWithSourceMap": true,
+		"coverView": true,
 		"nodeModules": false,
-		"enhance": false
+		"autoAudits": false,
+		"uglifyFileName": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"bundle": true
 	},
 	"compileType": "miniprogram",
 	"appid": "wxbe678a16cde3b1b5",

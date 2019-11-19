@@ -73,9 +73,8 @@ Page({
         "Content-Type": "application/x-www-form-urlencoded",
       },
       success: function (res) {
-        console.log(res)
-        wx.showModal({
-          content:res.data
+        wx.navigateTo({
+          url: '../orderSeccuss/index'
         })
       }
     });

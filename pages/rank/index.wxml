@@ -5,9 +5,9 @@
         <view class="part1">
             <block wx:for="{{list}}" wx:key="{{index}}" wx:if="{{index<3}}">
                 <view class="list{{index}}">
-                    <view class="text">{{item.text}}</view>
-                    <image src="{{item.url}}" alt="" class="photo"/>
-                    <view class="name">{{item.name}}</view>
+                    <view class="text">{{item.winePower}}</view>
+                    <image src="{{item.headIcon}}" alt="" class="photo"/>
+                    <view class="name">{{item.userNick}}</view>
                 </view>
             </block>
         </view>
@@ -17,18 +17,18 @@
                 <view class="lists">
                     <image src="../../images/phlistbg.png" class="listbg" alt=""/>
                     <text>{{index+1}}</text>
-                    <image src="{{item.url}}" alt="" class="photo"/>
-                    <view class="name">{{item.name}}</view>
-                    <view class="text">{{item.text}}</view>
+                    <image src="{{item.headIcon}}" alt="" class="photo"/>
+                    <view class="name">{{item.userNick}}</view>
+                    <view class="text">{{item.winePower}}酒力</view>
                 </view>
             </block>
         </scroll-view>
         <view class="part3">
             <view class="lists">
-                <text>{{my.no}}</text>
-                <image src="{{my.url}}" alt="" class="photo"/>
-                <view class="name">{{my.name}}</view>
-                <view class="text">{{my.text}}</view>
+                <text>{{my.rank}}</text>
+                <image src="{{my.headIcon}}" alt="" class="photo"/>
+                <view class="name">{{my.userNick}}</view>
+                <view class="text">{{my.winePower}}酒力</view>
 
             </view>
         </view>

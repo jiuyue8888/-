@@ -28,7 +28,7 @@ Page({
 
                 that.setData({
                     avatarPic: avatarUrl,
-                    gif:'http://wangtest.pinet.cn/Pic/cartoon/bxkq.gif'
+                    gif:'https://xjl123.oss-cn-beijing.aliyuncs.com/xjl/bxkq.gif'
                 })
             }
         })
@@ -47,11 +47,13 @@ Page({
                 "Content-Type": "application/x-www-form-urlencoded",
             },
             success: function (res) {
+                console.log(res)
                 app.data.recordID = res.data.recordID;
                 const list = app.data.boxList;
                 let arr = [];
                 app.data.final = 0;
-                Object.keys(list).map(item=>{
+
+                list!==undefined&&list!==null&&Object.keys(list).map(item=>{
                     arr.push({
                         final:list[item].final,
                         times:list[item].times,
@@ -91,10 +93,10 @@ Page({
             success: function (res) {
 
                 if(typeof res.data == "string"){
-                    /*wx.showModal({
+                    wx.showModal({
                         content:res.data
-                    })
-                    return;*/
+                    });
+                    return;
                 }
 
                 let brr = [];
