@@ -8,7 +8,7 @@
             </view>
             <view>
                 <text>联系方式</text>
-                <input placeholder="手机号" value="{{phone}}" name='cellphone' />
+                <input placeholder="手机号" value="{{phone}}" name='cellphone' type="number" />
             </view>
             <view>
                 <text>所在地区</text>

@@ -5,8 +5,8 @@
         <image src="../../images/jt.png" class="jt" />
         <view class="detail-content">
             <image src="{{img}}" class="mainImg" />
-            <image src="../../images/scbtn.png" class="scbtn" />
-            <image src="../../images/hmjbtn.png" class="hmjbtn" />
+            <!--<image src="../../images/scbtn.png" class="scbtn" />
+            <image src="../../images/hmjbtn.png" class="hmjbtn" />-->
         </view>
         <view class="detail-font">
             <view>

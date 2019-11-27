@@ -7,7 +7,13 @@ Page({
     price1: '',
     price2: '',
     userName: '',
+    inputValue: '',
     userAdd: ''
+  },
+  bindKeyInput: function (e) {
+    this.setData({
+      inputValue: e.detail.value
+    })
   },
   onLoad: function () {
     const that = this;
@@ -32,51 +38,47 @@ Page({
       img: data.picURL,
       name: data.spec.split(',')[0] + data.itemName,
       price1: data.spec.split(',')[0],
-      price2: '',
+      price2: data.spec.split(',')[0]-app.data.final,
     })
 
-    wx.request({
-      url: app.data.url + '/api/address',
-      method: 'GET', //请求方式
-      data: {
-        openID: app.data.openid,
-      },//请求参数
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      success: function (res) {
-        const obj = res.data;
-        if (obj.length > 0) {
-          console.log(obj[app.data.addressNumber])
-          const newObj = obj[app.data.addressNumber];
-          that.setData({
-            have: true,
-            userName: newObj.name + ',' + newObj.cellphone,
-            userAdd: newObj.province + ',' + newObj.city + ',' + newObj.detail
-          })
-        }
-
+    app.getData('GET','/api/address',{
+      openID: app.data.openid,
+    },res=>{
+      const obj = res.data;
+      if (obj.length > 0) {
+        console.log(obj[app.data.addressNumber])
+        const newObj = obj[app.data.addressNumber];
+        that.setData({
+          have: true,
+          userName: newObj.name + ',' + newObj.cellphone,
+          userAdd: newObj.province + ',' + newObj.city + ',' + newObj.detail
+        })
       }
-    });
+    })
+
   },
   submitClick:function(){
-    wx.request({
-      url: app.data.url + '/api/order',
-      method: 'POST', //请求方式
-      data: {
-        openID: app.data.openid,
-        cardID:app.data.cardId,
-        itemID:app.data.itemIDList,
-        address:this.data.userName+','+this.data.userAdd
-      },//请求参数
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      success: function (res) {
+    app.getData('POST','/api/order',{
+      openID: app.data.openid,
+      cardID:app.data.cardId,
+      itemID:app.data.itemIDList,
+      address:this.data.userName+','+this.data.userAdd,
+      keyID:app.data.isFalse?app.data.keyID:this.data.inputValue
+    },res=>{
+      console.log(res);
+      if(res.data != "订单提交成功!"){
+        wx.showToast({
+          title: res.data,
+          icon: 'none',
+          duration: 2000
+        })
+
+      }else{
         wx.navigateTo({
           url: '../orderSeccuss/index'
         })
       }
-    });
+
+    })
   }
 })

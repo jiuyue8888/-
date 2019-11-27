@@ -25,23 +25,18 @@ Page({
 
   onLoad: function () {
     const that = this;
-    wx.request({
-      url: app.data.url + '/api/recordlist',
-      method: 'GET', //请求方式
-      data: {
-        openID: app.data.openid,
-      },//请求参数
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      success: function (res) {
-        const obj = res.data;
-        console.log(obj)
-        that.setData({
-          items:obj
-        })
-      }
-    });
+    this.compData = this.selectComponent("#comp");
+    this.compData.show(2);
+    app.getData('GET','/api/recordlist',{
+      openID: app.data.openid,
+    },res=>{
+      const obj = res.data;
+      console.log(obj)
+      that.setData({
+        items:obj
+      })
+    })
+
   },
 
 })

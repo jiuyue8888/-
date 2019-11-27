@@ -38,23 +38,26 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width:300rpx;
-    height: 300rpx;
-    margin: -150rpx 0 0 -150rpx;
+    width:600rpx;
+    height: 388rpx;
+    margin: -194rpx 0 0 -300rpx;
 }
 .boxAn image{
-    width:300rpx;
-    height: 300rpx;
+    width:600rpx;
+    height: 388rpx;
 }
 .boxAn text{
     position: absolute;
-    top:40rpx;
+    top:128rpx;
     left:0;
-    width: 320rpx;
+    font-family:‘Trebuchet MS’, ‘Lucida Sans Unicode’, ‘Lucida Grande’, ‘Lucida Sans’, Arial, sans-serif;
+    width: 600rpx;
+    height:388rpx;
+    lint-height:388rpx;
     text-align: center;
     color:#b21c1f;
     text-shadow:-1px 2px 0px #ead06e, 2px -1px 0px #ead06e, 2px 2px 0px #ead06e;
-    font-size:80rpx;
+    font-size:120rpx;
     font-weight:700;
 }
 .popMain{
@@ -99,7 +102,7 @@
 }
 .boxShow{
     position:absolute;
-    top:170rpx;
+    top:150rpx;
     left:5%;
     width:90%;
 
@@ -117,8 +120,8 @@
     clear:both;
 }
 .boxShow image{
-    width:95rpx;
-    height:85rpx;
+    width:110rpx;
+    height:110rpx;
 }
 .boxImg{
     position:relative;

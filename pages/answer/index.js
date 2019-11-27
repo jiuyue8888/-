@@ -23,6 +23,7 @@ Page({
     ]
   },
   onLoad: function () {
+
     this.timeHandle();
     const that = this;
     let arr=[];
@@ -61,7 +62,7 @@ Page({
         clearInterval(that.time);
         app.data.answerMeg[0] = that.data.mT;
         app.data.answerMeg[that.data.show+1] = '0';
-        wx.navigateTo({url: '../result/index'});
+        wx.reLaunch({url: '../result/index'});
       } else {
         app.data.answerMeg[that.data.show+1] = '0';
         n++;
@@ -121,7 +122,7 @@ Page({
         clearInterval(that.mt);
         clearInterval(that.time);
         app.data.answerMeg[0] = that.data.mT;
-        wx.navigateTo({url: '../result/index'})
+        wx.reLaunch({url: '../result/index'})
   
       } else {
         that.setData({

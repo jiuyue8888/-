@@ -7,7 +7,7 @@ Page({
   onLoad: function () {
     const that = this;
     this.compData = this.selectComponent("#comp");
-    this.compData.show(2);
+    this.compData.show(0);
 
   }
 

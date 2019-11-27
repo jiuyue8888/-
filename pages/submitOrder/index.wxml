@@ -5,12 +5,12 @@
         <view class="name">{{name}}</view>
         <view class="price">
             <text class="price-status1">原价¥{{price1}}</text>
-            <text class="price-status2">直邮价¥188</text>
+            <text class="price-status2">直邮价¥{{price2}}</text>
         </view>
     </view>
     <view class="submit-part2">
         <text>输入酒令卡密码</text>
-        <input class="weui-input"/>
+        <input class="weui-input" bindinput="bindKeyInput"/>
     </view>
     <view class="submit-part3">
         <text class="title">我的收货地址</text>

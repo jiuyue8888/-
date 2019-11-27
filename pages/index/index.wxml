@@ -7,8 +7,11 @@
     <image src="../../images/bg.jpg" class="top-img"/>
     <view class="main-content">
         <image src="../../images/tong.png" class="tong"/>
-        <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" class="animated pulse infinite">
+
+        <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" class="animated pulse infinite"
+                hover-class='mylistHover' hover-stay-time="2000">
             <image src="../../images/btn.png"/>
+            <image src="../../images/w.png" class="hover"/>
         </button>
         <view class="rule">
             <text class="rule-title">规则说明：</text>
@@ -18,6 +21,6 @@
             <text>新用户将免费拥有1次行酒令机会，同时行酒令会帮您恶补酒场知识！帮您用最省钱方式收藏美酒！</text>
         </view>
     </view>
-    <pop id="pop" class="{{popShow?'':'hide'}}" bind:myevent="onMyEvent" answer="{{answer}}"/>
-    <tab id="comp"/>
+<pop id="pop" class="{{popShow?'':'hide'}}" bind:myevent="onMyEvent" answer="{{answer}}"/>
+    <tab id="comp" class="{{popShow1?'':'hide'}}"/>
 </scroll-view>

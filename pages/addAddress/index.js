@@ -26,7 +26,15 @@ Page({
     if(value.cellphone == ''){
       wx.showModal({
         title: '提示',
-        content: '请输入电话',
+        content: '请输入手机号',
+      })
+      return;
+    }
+    let str = /^1[3456789]\d{9}$/;
+    if(!str.test(value.cellphone)){
+      wx.showModal({
+        title: '提示',
+        content: '手机号格式不对',
       })
       return;
     }
@@ -48,19 +56,12 @@ Page({
       cellphone: value.cellphone
     }
     const dataNode = this.data.id !== undefined ? Object.assign(newData,{addressID:this.data.id}):newData;
-    wx.request({
-      url: app.data.url + '/api/address',
-      method: 'POST', //请求方式
-      data: dataNode,//请求参数
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      success: function (res) {
-        wx.navigateTo({
-          url: '../writeAdd/index'
-        })
-      }
-    });
+    app.getData('POST','/api/address',dataNode,res=>{
+      wx.navigateTo({
+        url: '../writeAdd/index'
+      })
+    })
+
   },
   onLoad: function () {
 

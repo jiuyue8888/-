@@ -1,9 +1,9 @@
 <view class="tabs">
     <view wx:for="{{nameList}}" wx:key="index">
-        <navigator url="{{item.url}}" open-type="navigate" class="{{curr==index?'curr':''}}">
+        <view class="{{curr==index?'curr tab':'tab'}}" bindtap="getMess" data-url="{{item.url}}">
 
             <image src="{{curr==index?item.imgHover:item.img}}"/>
             <text>{{item.name}}</text>
-        </navigator>
+        </view>
     </view>
 </view>

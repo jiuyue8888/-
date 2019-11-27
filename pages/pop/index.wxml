@@ -1,13 +1,8 @@
 <view class="popList">
     <view class="popContent">
         <view class="popBody">
-            <image src="../../images/popbg.png" class="popbg"/>
-            <image src="../../images/close.png" class="close" bindtap="btnClick"/>
-            <view class="popMain">
-                <view wx:for="{{answer.arr}}" wx:key="{{index}}">
-                    <image src="{{item}}" bindtap="answerStart"/>
-                </view>
-            </view>
+            <image src="https://wangtest.pinet.cn/Pic/cartoon/djs.gif" class="gif"/>
+
 
         </view>
     </view>

@@ -10,7 +10,7 @@
     font-size: 28rpx;
     background: #190202;
 }
-.tabs navigator{
+.tabs .tab{
 position:relative;
     float: left;
     width: 33.33%;
@@ -23,12 +23,12 @@ position:relative;
     -webkit-user-select: none;
     user-select:none;
 }
-.tabs navigator image{
+.tabs .tab image{
     width:90rpx;
     height:90rpx;
     margin:0 auto;
 }
-.tabs navigator text{
+.tabs .tab text{
     position:absolute;
     left:50%;
     bottom:0;
@@ -40,6 +40,6 @@ position:relative;
     text-align:center;
 
 }
-.tabs navigator.curr{
+.tabs .curr{
     color: #c63835;
 }

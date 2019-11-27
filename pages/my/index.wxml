@@ -5,27 +5,30 @@
     <view class="boxBody">
         <view class="boxFont">
             <image src="{{avatarPic}}"/>
-            <view>答题者</view>
+            <view>{{nickName}}</view>
         </view>
         <view class="part">
 
             <view class="left" bindtap="wineClick">
-                22
-                <text>酒令记录</text>
+                <text>{{n1}}</text>
+                <image src="../../images/d2.png" />
             </view>
             <view class="right" bindtap="orderClick">
-                22
-                <text>订单记录</text>
+                <text>{{n2}}</text>
+                <image src="../../images/d1.png" />
             </view>
         </view>
-        <view class="mylist" bindtap="addClick">
+        <view class="mylist" bindtap="addClick" hover-class='mylistHover'>
             <image src="../../images/mylist.png" alt=""/>
             <text>地址管理</text>
         </view>
-        <view class="mylist" bindtap="kfClick">
-            <image src="../../images/mylist.png" alt=""/>
-            <text>客服中心</text>
-        </view>
+        <button open-type="contact">
+            <view class="mylist" hover-class='mylistHover'>
+                <image src="../../images/mylist.png" alt=""/>
+                <text>客服中心</text>
+            </view>
+        </button>
+
     </view>
     <tab id="comp"/>
 </view>

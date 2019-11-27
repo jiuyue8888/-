@@ -59,7 +59,7 @@ position:absolute;
 .part text{
 display:block;
 width:100%;
-    color:#333;
+
     padding-top:10rpx;
     font-size:34rpx;
 }
@@ -75,6 +75,8 @@ margin-bottom:40rpx;
 line-height:78rpx;
 box-sizing:border-box;
 padding-left:80rpx;
+background:#000;
+
 }
 .mylist image{
 position:absolute;
@@ -89,4 +91,23 @@ display:block;
 position:relative;
 z-index:2;
 color:#571616;
+text-shadow:1px 1px 0px #d1c49b;
+}
+.left image,
+.right image{
+    width:143rpx;
+    height:58rpx;
+}
+.mylistHover image{
+    opacity:0.75;
+}
+.boxBody button{
+background:transparent;
+padding:0;
+text-align:left;
+border:none;
+border-radius:0;
+}
+.boxBody button::after{
+border:none;
 }
