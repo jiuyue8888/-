@@ -8,7 +8,8 @@ Page({
     price2: '',
     userName: '',
     inputValue: '',
-    userAdd: ''
+    userAdd: '',
+    input:app.data.isFalse?app.data.keyID:''
   },
   bindKeyInput: function (e) {
     this.setData({
@@ -39,6 +40,7 @@ Page({
       name: data.spec.split(',')[0] + data.itemName,
       price1: data.spec.split(',')[0],
       price2: data.spec.split(',')[0]-app.data.final,
+      input:app.data.isFalse?app.data.keyID:''
     })
 
     app.getData('GET','/api/address',{

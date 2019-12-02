@@ -40,7 +40,7 @@ Page({
       }
       obj.map(item=>{
         let newD = {};
-        app.getDate('GET','/api/item',{
+        app.getData('GET','/api/item',{
           itemID: item.itemID,
         },it=>{
           const data = it.data;

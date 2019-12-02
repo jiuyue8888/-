@@ -34,7 +34,20 @@ Page({
       console.log(obj)
       that.setData({
         items:obj
+      });
+      let arr=[];
+      obj.map(item=>{
+        let n = 0;
+        item.result.split(',').map((id,index)=>{
+          if(index>0&&id==1){
+            n++;
+          }
+        })
+        arr.push(n);
       })
+      that.setData({
+        arr,
+      });
     })
 
   },

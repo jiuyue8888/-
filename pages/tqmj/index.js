@@ -50,32 +50,33 @@ Page({
     obj.exec(res=>{
       console.log(res)
       that.h = res[0].height;
+
+      this.animation = wx.createAnimation({
+        duration:600,
+        success:function(res) {
+
+        }
+      });
+      let t = 0;
+
+      console.log(this.h);
+      this.st = setInterval(()=>{
+        if(t < 120){
+          t+=20;
+        }else{
+          t=0;
+        }
+
+        that.animation.translateY(-t).step();
+        that.setData({
+
+          animation: this.animation.export()
+        })
+      },2000)
     });
   },
   onReady:function () {
-    const that = this;
-    this.animation = wx.createAnimation({
-      duration:600,
-      success:function(res) {
 
-      }
-    });
-    let t = 0;
-
-    console.log(this.h);
-    this.st = setInterval(()=>{
-      if(t < that.h){
-        t+=40;
-      }else{
-        t=0;
-      }
-
-      that.animation.translateY(-t).step();
-      that.setData({
-
-        animation: this.animation.export()
-      })
-    },2000)
 
   }
 

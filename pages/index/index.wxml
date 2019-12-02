@@ -3,6 +3,7 @@
     <view class="top-font">
         <image src="../../images/titlebg.png"/>
         <text>生活将重重聩赏爱学习的人</text>
+
     </view>
     <image src="../../images/bg.jpg" class="top-img"/>
     <view class="main-content">

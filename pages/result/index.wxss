@@ -47,10 +47,14 @@
     height: 388rpx;
 }
 .boxAn text{
+font-size:80rpx;
+font-family:'Times New Roman', Times, serif;
+}
+.boxAn>text{
     position: absolute;
     top:128rpx;
     left:0;
-    font-family:‘Trebuchet MS’, ‘Lucida Sans Unicode’, ‘Lucida Grande’, ‘Lucida Sans’, Arial, sans-serif;
+
     width: 600rpx;
     height:388rpx;
     lint-height:388rpx;

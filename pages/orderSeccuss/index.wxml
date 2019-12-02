@@ -1,6 +1,6 @@
 <view class="submit-order">
     <image src="../../images/kfbg.jpg" class="bg" />
-    <image src="../../images/orders.png" class="''kf"/>
+    <image src="../../images/orders.png" class="kf" bindtap="gomy"/>
     
     <tab id="comp" />
 </view>

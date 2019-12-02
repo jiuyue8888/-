@@ -11,7 +11,7 @@
                 型{{font2}}
             
             </view>
-            <view class="pHeight"><text animation="{{animation}}" id="text">{{font4}}</text></view>
+            <view class="pHeight" id="textParent"><text animation="{{animation}}" id="text">{{font4}}</text></view>
         </view>
     </view>
     <swiper class="swiper" interval="5000" duration="1000">
@@ -30,7 +30,7 @@
         <navigator open-type='redirect' url='/pages/submitOrder/index'>
         <image src="../../images/tqbtn.png" class="jhbtn" />
         </navigator>
-        <view class="detail-fotter">{{font5}}</view>
+        <view class="detail-fotter">查看相关视频，了解生产工艺。</view>
     </view>
     <tab id="comp" />
 </view>

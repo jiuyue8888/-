@@ -135,7 +135,7 @@ Page({
                 that.setData({
                     textShow: true
                 })
-            }, 500);
+            }, 1000);
             setTimeout(() => {
                 that.setData({
                     textShow: false

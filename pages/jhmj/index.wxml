@@ -13,7 +13,7 @@
                 <view class="style1">{{font1}}</view>
                 型{{font2}}
             </view>
-            <text class="pHeight">{{font4}}</text>
+            <view class="pHeight"><text animation="{{animation}}" id="text">{{font4}}</text></view>
         </view>
     </view>
     <view class="footerBg">

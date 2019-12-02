@@ -45,7 +45,7 @@
                 <block wx:if="{{show}}">
                     <view class="boxAn">
                         <image src="{{gif}}"/>
-                        <text style="{{textShow?'display:block':'display:none'}}">{{times}}</text>
+                        <text style="{{textShow?'display:block':'display:none'}}"><text>暴击X</text>{{times}}</text>
                     </view>
                 </block>
 

@@ -7,7 +7,7 @@ Page({
         popShow: false,
         popShow1: false,
     },
-    onLoad: function (query) {
+    onLoad: function (options) {
         this.compData = this.selectComponent("#comp");
         this.popData = this.selectComponent("#pop");
         this.compData.show(0);
@@ -17,31 +17,16 @@ Page({
                 popShow: false
             })
         });
+        
 
-        if (query.c) {
-            app.data.cardId = query.c;
+        if (options.c) {
+            app.data.cardId = options.c?decodeURIComponent(options.c):'';
         } else {
             if (app.data.cardId == '') {
                 let times = wx.getStorageSync('times');
 
-                wx.setStorage({
-                    key: 'times',
-                    data: times < 1 ? 1 : times + 1,
-                })
-                //获取虚拟卡
-                app.getData('GET', '/api/getcardid', {}, res=> {
-                    console.log(res)
-                    app.data.cardId = res.data.cardID;
-                    app.data.topImg = res.data.picURL;
-                    app.data.itemIDList = res.data.itemIDList;
-                    app.data.isFalse = true;
-                    app.data.keyID = res.data.keyID;
-                    that.setData({
-                        popShow1: true
-                    })
-                })
 
-                if (times > 30) {
+                if (times > 200) {
                     wx.showModal({
                         content: '少侠需要扫描酒卡二维码才能玩行酒令，跳转至客服了解酒卡^ _ ^',
                         success (res) {
@@ -56,6 +41,36 @@ Page({
                     });
                     return;
                 }
+
+
+                wx.showModal({
+                    content: '行酒令免费三次，是否需要确认使用次数？用完后请联系客服获得酒卡。',
+                    success (res) {
+                        if (res.confirm) {
+                            wx.setStorage({
+                                key: 'times',
+                                data: times < 1 ? 1 : times + 1,
+                            })
+                            //获取虚拟卡
+                            app.getData('GET', '/api/getcardid', {}, res=> {
+                                console.log(res)
+                                app.data.cardId = res.data.cardID;
+                                app.data.topImg = res.data.picURL;
+                                app.data.itemIDList = res.data.itemIDList;
+                                app.data.isFalse = true;
+                                app.data.keyID = res.data.keyID;
+                                that.setData({
+                                    popShow1: true
+                                })
+                            })
+                        } else if (res.cancel) {
+                            console.log('用户点击取消')
+                        }
+                    }
+                });
+
+
+
                 return;
             }
 

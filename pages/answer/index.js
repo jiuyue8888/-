@@ -3,7 +3,7 @@ var app = getApp()
 Page({
   data: {
     show:0,
-    totalTime:10,//时限
+    totalTime:30,//时限
     nowTime:0,// 当前时间百分比
     n_time:0,//++的时间
     isClick:false,//是否点击

@@ -10,7 +10,7 @@
     </view>
     <view class="submit-part2">
         <text>输入酒令卡密码</text>
-        <input class="weui-input" bindinput="bindKeyInput"/>
+        <input class="weui-input" bindinput="bindKeyInput" value="{{input}}"/>
     </view>
     <view class="submit-part3">
         <text class="title">我的收货地址</text>
