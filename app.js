@@ -1,7 +1,7 @@
 //app.js
 App({
   data:{
-    url:'https://api.dingtiger.com/',
+    url:'https://wangtest.pinet.cn',
     cardId:'',
     answerMeg:[],
     addressNumber:0,
@@ -10,6 +10,21 @@ App({
       wineScore: '',
       status: ''
 	}
+  },
+  onShareAppMessage(){
+    const that = this;
+    return {
+      title: '',
+      path: '/pages/index/index',
+      success: function (res) {
+        // 转发成功
+
+        that.shareClick();
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   },
   getData:function(method,url,data,call=()=>{}){
     const that = this;

@@ -22,6 +22,9 @@ position:relative;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     user-select:none;
+    background: transparent;
+
+    height:90rpx;
 }
 .tabs .tab image{
     width:90rpx;

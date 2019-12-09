@@ -39,7 +39,7 @@ Page({
       img: data.picURL,
       name: data.spec.split(',')[0] + data.itemName,
       price1: data.spec.split(',')[0],
-      price2: data.spec.split(',')[0]-app.data.final,
+      price2: app.data.activeMoney==undefined?data.spec.split(',')[0]-app.data.final:app.data.activeMoney,
       input:app.data.isFalse?app.data.keyID:''
     })
 
@@ -76,7 +76,8 @@ Page({
         })
 
       }else{
-        wx.navigateTo({
+        app.data.recordID=undefined;
+        wx.reLaunch({
           url: '../orderSeccuss/index'
         })
       }

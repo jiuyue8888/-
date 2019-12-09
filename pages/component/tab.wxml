@@ -1,9 +1,10 @@
 <view class="tabs">
     <view wx:for="{{nameList}}" wx:key="index">
-        <view class="{{curr==index?'curr tab':'tab'}}" bindtap="getMess" data-url="{{item.url}}">
+        <button class="{{curr==index?'curr tab':'tab'}}" open-type="getUserInfo"
+                bindgetuserinfo="onGotUserInfo" data-url="{{item.url}}">
 
             <image src="{{curr==index?item.imgHover:item.img}}"/>
             <text>{{item.name}}</text>
-        </view>
+        </button>
     </view>
 </view>

@@ -29,12 +29,13 @@ Component({
                 curr:curr
             })
         },
-        getMess:function(e){
+        onGotUserInfo:function(e){
             const url = e.currentTarget.dataset.url;
+
+
             wx.navigateTo({
                 url: url
             })
-
 
         }
     }

@@ -39,12 +39,14 @@
     top: 50%;
     left: 50%;
     width:600rpx;
-    height: 388rpx;
-    margin: -194rpx 0 0 -300rpx;
+    transition:300ms;
+
+    height: 344rpx;
+    margin: -177rpx 0 0 -300rpx;
 }
 .boxAn image{
     width:600rpx;
-    height: 388rpx;
+    height: 344rpx;
 }
 .boxAn text{
 font-size:80rpx;
@@ -52,7 +54,7 @@ font-family:'Times New Roman', Times, serif;
 }
 .boxAn>text{
     position: absolute;
-    top:128rpx;
+    top:108rpx;
     left:0;
 
     width: 600rpx;

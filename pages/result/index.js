@@ -31,6 +31,7 @@ Page({
                 that.setData({
                     avatarPic: avatarUrl,
                     gif:'https://wangtest.pinet.cn/Pic/cartoon/bxkq.gif'
+                    //gif:'../../images/num.png'
                 })
             }
         })

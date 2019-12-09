@@ -6,6 +6,22 @@ Page({
     data: {
         popShow: false,
         popShow1: false,
+        op:'213'
+    },
+    onShareAppMessage(){
+        const that = this;
+        return {
+            title: '',
+            path: '/pages/index/index',
+            success: function (res) {
+                // 转发成功
+
+                that.shareClick();
+            },
+            fail: function (res) {
+                // 转发失败
+            }
+        }
     },
     onLoad: function (options) {
         this.compData = this.selectComponent("#comp");
@@ -14,10 +30,13 @@ Page({
         const that = this;
         this.popData.btnClick(function () {
             that.setData({
-                popShow: false
+                popShow: false,
             })
         });
-        
+        that.setData({
+            op: options,
+        })
+        console.log(options)
 
         if (options.c) {
             app.data.cardId = options.c?decodeURIComponent(options.c):'';
@@ -26,7 +45,7 @@ Page({
                 let times = wx.getStorageSync('times');
 
 
-                if (times > 200) {
+                if (times > 2) {
                     wx.showModal({
                         content: '少侠需要扫描酒卡二维码才能玩行酒令，跳转至客服了解酒卡^ _ ^',
                         success (res) {
@@ -134,19 +153,19 @@ Page({
                 switch (status) {
                     case '0':
                         if (data.recordID !== null) {
-                            wx.navigateTo({
+                            wx.reLaunch({
                                 url: '../result/index'
                             })
                         }
 
                         break;
                     case '1':
-                        wx.navigateTo({
+                        wx.reLaunch({
                             url: '../tqmj/index'
                         })
                         break;
                     case '2':
-                        wx.navigateTo({
+                        wx.reLaunch({
                             url: '../orderSeccuss/index'
                         })
                         break;
@@ -242,7 +261,7 @@ Page({
                                                 that.setData({
                                                     popShow: false
                                                 })
-                                                wx.navigateTo({
+                                                wx.reLaunch({
                                                     url: '../answer/index'
                                                 })
                                             }, 3000)

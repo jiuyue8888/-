@@ -2,7 +2,7 @@
 <scroll-view scroll-y class="main">
     <view class="top-font">
         <image src="../../images/titlebg.png"/>
-        <text>生活将重重聩赏爱学习的人</text>
+        <text class="{{op.c}}">生活将重重聩赏爱学习的人</text>
 
     </view>
     <image src="../../images/bg.jpg" class="top-img"/>
